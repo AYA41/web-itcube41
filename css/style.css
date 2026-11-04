@@ -84,14 +84,9 @@ img { max-width: 100%; display: block; }
 .bg-blobs {
   position: fixed;
   inset: 0;
-  z-index: 0; /* ✅ Изменено: было -1, стало 0 */
+  z-index: -1; /* ✅ Изменено: было -1, стало 0 */
   overflow: hidden;
   pointer-events: none;
-}
-
-body > *:not(.bg-blobs) {
-  position: relative;
-  z-index: 1; /* ✅ Добавлено: весь контент поверх blobs */
 }
 
 .blob {
