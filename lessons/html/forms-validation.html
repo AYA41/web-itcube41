@@ -1,0 +1,191 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 17</span>
+        <h1>Валидация форм: проверка данных до отправки</h1>
+        <p class="topic__lead">
+            Представь, что ты охранник на входе в клуб. Твоя задача — не пускать тех, кто не подходит под правила (нет паспорта, слишком молод, не тот дресс-код). Валидация в HTML — это точно такой же «охранник», который проверяет данные пользователя до того, как они отправятся на сервер.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🚫 Атрибут <code>required</code>: «Обязательно к заполнению»</h2>
+        <p>
+            Самый простой и частый атрибут. Если поле имеет <code>required</code>, браузер не даст отправить форму, пока пользователь его не заполнит.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Обязательное поле</span>
+            </div>
+            <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"name"</span><span class="t">&gt;</span>Твоё имя:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">id</span>=<span class="v">"name"</span> <span class="a">name</span>=<span class="v">"name"</span> <span class="a">required</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">✨</span>
+            <div>
+                <b>Магия браузера:</b> Если пользователь попытается отправить форму с пустым обязательным полем, браузер сам покажет красную подсказку: «Заполните это поле». И форма <b>не отправится</b>, пока ошибка не будет исправлена!
+            </div>
+        </div>
+
+        <h2>📏 Атрибуты <code>minlength</code> и <code>maxlength</code>: «Слишком коротко / слишком длинно»</h2>
+        <p>
+            Эти атрибуты ограничивают количество символов в текстовом поле. Отлично подходят для паролей, логинов или комментариев.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"password"</span><span class="t">&gt;</span>Придумай пароль (от 6 до 20 символов):<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"password"</span> <span class="a">id</span>=<span class="v">"password"</span> <span class="a">name</span>=<span class="v">"password"</span> <span class="a">minlength</span>=<span class="v">"6"</span> <span class="a">maxlength</span>=<span class="v">"20"</span> <span class="a">required</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно:</b> <code>minlength</code> и <code>maxlength</code> работают только с текстовыми полями (<code>text</code>, <code>email</code>, <code>url</code>, <code>password</code>, <code>search</code>, <code>tel</code>). Для чисел и дат используй <code>min</code> и <code>max</code>.
+            </div>
+        </div>
+
+        <h2>🔢 Атрибуты <code>min</code> и <code>max</code>: «Минимум и максимум»</h2>
+        <p>
+            Для числовых полей (<code>type="number"</code>, <code>type="range"</code>, <code>type="date"</code>) можно задать диапазон допустимых значений.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"age"</span><span class="t">&gt;</span>Твой возраст (от 7 до 99 лет):<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"number"</span> <span class="a">id</span>=<span class="v">"age"</span> <span class="a">name</span>=<span class="v">"age"</span> <span class="a">min</span>=<span class="v">"7"</span> <span class="a">max</span>=<span class="v">"99"</span> <span class="a">required</span><span class="t">&gt;</span>
+
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"date"</span><span class="t">&gt;</span>Дата начала тура (не раньше сегодня):<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"date"</span> <span class="a">id</span>=<span class="v">"date"</span> <span class="a">name</span>=<span class="v">"date"</span> <span class="a">min</span>=<span class="v">"2026-11-04"</span> <span class="a">required</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>🔍 Атрибут <code>pattern</code>: «Проверка по шаблону»</h2>
+        <p>
+            Это самая мощная валидация! Атрибут <code>pattern</code> принимает <b>регулярное выражение</b> — это как шаблон, которому должен соответствовать введённый текст.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Телефон в формате +7 (XXX) XXX-XX-XX --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"tel"</span> <span class="a">pattern</span>=<span class="v">"\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"</span> <span class="a">placeholder</span>=<span class="v">"+7 (999) 123-45-67"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- Индекс из 6 цифр --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">pattern</span>=<span class="v">"\d{6}"</span> <span class="a">placeholder</span>=<span class="v">"683000"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- Имя только из букв (без цифр и символов) --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">pattern</span>=<span class="v">"[А-Яа-яЁё\s]+"</span> <span class="a">placeholder</span>=<span class="v">"Только буквы"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">🧠</span>
+            <div>
+                <b>Регулярные выражения — это сложная тема!</b><br>
+                Не пугайся, если синтаксис <code>\d{3}</code> или <code>[А-Яа-я]</code> кажется магией. Для базового понимания достаточно знать:<br>
+                • <code>\d</code> — любая цифра<br>
+                • <code>{3}</code> — ровно 3 раза<br>
+                • <code>[А-Яа-я]</code> — любая буква русского алфавита<br>
+                • <code>+</code> — один или более раз<br><br>
+                Если хочешь углубиться — это отдельная большая тема, но для начала просто копируй готовые шаблоны из интернета.
+            </div>
+        </div>
+
+        <h2>💬 Атрибут <code>title</code>: «Текст подсказки при ошибке»</h2>
+        <p>
+            Когда браузер показывает ошибку валидации, он берёт текст из атрибута <code>title</code> и добавляет его к сообщению. Это отличный способ подсказать пользователю, что именно нужно исправить.
+        </p>
+
+        <div class="code-block">
+            <pre><code><span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">pattern</span>=<span class="v">"\d{6}"</span> <span class="a">title</span>=<span class="v">"Индекс должен состоять из 6 цифр"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>🎨 Как браузер показывает ошибки?</h2>
+        <p>
+            Когда валидация не пройдена, браузер:
+        </p>
+        <ul class="topic__list">
+            <li>Обводит проблемное поле <b>красной рамкой</b>.</li>
+            <li>Показывает <b>всплывающую подсказку</b> рядом с полем (текст берётся из <code>title</code> или стандартное сообщение).</li>
+            <li><b>Не отправляет форму</b>, пока все ошибки не будут исправлены.</li>
+            <li>Автоматически <b>прокручивает страницу</b> к первому полю с ошибкой.</li>
+        </ul>
+
+        <div class="info info--tip">
+            <span class="info__icon">🎯</span>
+            <div>
+                <b>Плюсы встроенной валидации:</b><br>
+                ✅ Работает без JavaScript<br>
+                ✅ Быстро (проверка идёт прямо в браузере)<br>
+                ✅ Доступно (программы для чтения с экрана озвучивают ошибки)<br><br>
+                <b>Минусы:</b><br>
+                ❌ Нельзя полностью кастомизировать внешний вид ошибок (цвета, шрифты)<br>
+                ❌ Для сложной логики всё равно нужен JavaScript<br>
+                ❌ Злоумышленник может обойти HTML-валидацию (поэтому на сервере нужна повторная проверка!)
+            </div>
+        </div>
+
+        <h2>📋 Шпаргалка: все атрибуты валидации</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Атрибут</th>
+                <th>Для чего</th>
+                <th>Пример</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>required</code></td>
+                <td>Обязательное поле</td>
+                <td><code>&lt;input required&gt;</code></td>
+            </tr>
+            <tr>
+                <td><code>minlength</code></td>
+                <td>Минимум символов</td>
+                <td><code>minlength="6"</code></td>
+            </tr>
+            <tr>
+                <td><code>maxlength</code></td>
+                <td>Максимум символов</td>
+                <td><code>maxlength="20"</code></td>
+            </tr>
+            <tr>
+                <td><code>min</code></td>
+                <td>Минимальное значение (число/дата)</td>
+                <td><code>min="7"</code></td>
+            </tr>
+            <tr>
+                <td><code>max</code></td>
+                <td>Максимальное значение (число/дата)</td>
+                <td><code>max="99"</code></td>
+            </tr>
+            <tr>
+                <td><code>pattern</code></td>
+                <td>Проверка по регулярному выражению</td>
+                <td><code>pattern="\d{6}"</code></td>
+            </tr>
+            <tr>
+                <td><code>title</code></td>
+                <td>Текст подсказки при ошибке</td>
+                <td><code>title="Введи 6 цифр"</code></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Регистрация в клубе исследователей»</h3>
+            <p>Создай файл <code>registration.html</code> и сделай форму регистрации с полной валидацией:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Поле «Имя» (<code>type="text"</code>): обязательное, только буквы русского или английского алфавита (используй <code>pattern</code>), с подсказкой <code>title</code>.</li>
+                <li>Поле «Email» (<code>type="email"</code>): обязательное.</li>
+                <li>Поле «Пароль» (<code>type="password"</code>): обязательное, минимум 8 символов, максимум 30 символов.</li>
+                <li>Поле «Возраст» (<code>type="number"</code>): обязательное, от 14 до 120 лет.</li>
+                <li>Поле «Дата рождения» (<code>type="date"</code>): обязательное, не позже сегодняшней даты (используй <code>max</code> с сегодняшней датой в формате ГГГГ-ММ-ДД).</li>
+                <li>Поле «Индекс» (<code>type="text"</code>): необязательное, но если заполнено — ровно 6 цифр (используй <code>pattern</code> и <code>title</code>).</li>
+                <li>Поле «Согласие с правилами» (<code>type="checkbox"</code>): обязательное (добавь <code>required</code>).</li>
+                <li>Кнопка «Зарегистрироваться».</li>
+                <li>Открой файл в браузере и попробуй отправить форму с ошибками. Посмотри, как браузер красиво подсвечивает проблемные поля!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

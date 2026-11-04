@@ -1,0 +1,89 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 10</span>
+        <h1>Гиперссылки: тег &lt;a&gt; и атрибут href</h1>
+        <p class="topic__lead">
+            Ссылки — это «порталы» интернета. Они позволяют пользователю одним кликом переместиться на другую страницу твоего сайта, на чужой сайт или даже начать писать письмо.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>⚓ Основа всего: тег &lt;a&gt;</h2>
+        <p>
+            Буква <b>a</b> расшифровывается как <i>anchor</i> (якорь). Но чтобы якорь зацепился за нужное место, ему обязательно нужен атрибут <b>href</b> (Hypertext Reference — ссылка на ресурс).
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Базовая ссылка</span>
+            </div>
+            <pre><code><span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"https://yandex.ru"</span><span class="t">&gt;</span>Перейти в Яндекс<span class="t">&lt;/a&gt;</span></code></pre>
+        </div>
+        <p>Всё, что находится между открывающим <code>&lt;a&gt;</code> и закрывающим <code>&lt;/a&gt;</code>, становится кликабельным. Это может быть текст, картинка или даже целый блок!</p>
+
+        <h2>🗺️ Два вида путей (Абсолютный и Относительный)</h2>
+        <p>Это самая важная часть! Путь в <code>href</code> можно указать двумя способами:</p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- 1. Абсолютный путь (полный адрес из интернета) --&gt;</span>
+<span class="c">&lt;!-- Используем для перехода на ДРУГИЕ сайты --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"https://kamchatka.travel"</span><span class="t">&gt;</span>Путешествие по Камчатке<span class="t">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- 2. Относительный путь (путь внутри твоего проекта) --&gt;</span>
+<span class="c">&lt;!-- Используем для перехода между СВОИМИ страницами --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"about.html"</span><span class="t">&gt;</span>О нас<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"pages/contacts.html"</span><span class="t">&gt;</span>Контакты (в папке pages)<span class="t">&lt;/a&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">💡</span>
+            <div>
+                <b>Золотое правило:</b> Если ссылка ведёт на чужой сайт, всегда пиши полный адрес с <code>https://</code>. Если ссылка ведёт на твой файл, пиши только его имя (и папку, если он в папке).
+            </div>
+        </div>
+
+        <h2>🪟 Открытие в новой вкладке: target</h2>
+        <p>
+            По умолчанию ссылка открывается в <b>той же вкладке</b>, и пользователь уходит с твоего сайта. Чтобы он остался у тебя, но смог посмотреть чужой ресурс, используй атрибут <code>target="_blank"</code>.
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"https://youtube.com"</span> <span class="a">target</span>=<span class="v">"_blank"</span> <span class="a">rel</span>=<span class="v">"noopener"</span><span class="t">&gt;</span>
+  Смотреть видео (откроется в новой вкладке)
+<span class="t">&lt;/a&gt;</span></code></pre>
+        </div>
+        <p><i>Примечание: атрибут <code>rel="noopener"</code> добавляется для безопасности, чтобы новая вкладка не могла управлять твоей страницей.</i></p>
+
+        <h2>📧 Специальные ссылки: почта и телефон</h2>
+        <p>HTML умеет не только открывать страницы, но и запускать программы на компьютере пользователя:</p>
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Открыть почтовую программу для написания письма --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"mailto:hello@it-kamchatka.ru"</span><span class="t">&gt;</span>Написать нам<span class="t">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Предложить позвонить (отлично работает на смартфонах) --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"tel:+79991234567"</span><span class="t">&gt;</span>Позвонить в IT-куб<span class="t">&lt;/a&gt;</span></code></pre>
+        </div>
+
+        <h2>🖼️ Ссылка-картинка</h2>
+        <p>Помнишь, мы говорили, что внутри <code>&lt;a&gt;</code> может быть что угодно? Вот как сделать кликабельную картинку:</p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"https://google.com"</span><span class="t">&gt;</span>
+  <span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"logo.png"</span> <span class="a">alt</span>=<span class="v">"Кликни на логотип"</span><span class="t">&gt;</span>
+<span class="t">&lt;/a&gt;</span></code></pre>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Полезные ресурсы»</h3>
+            <p>Создай файл <code>resources.html</code> и собери в нём коллекцию ссылок:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Добавь заголовок <code>&lt;h1&gt;</code> «Полезные ссылки для программиста».</li>
+                <li>Сделай ссылку на внешний сайт (например, <code>https://html5book.ru</code> или <code>https://code.mu</code>), которая <b>открывается в новой вкладке</b>.</li>
+                <li>Сделай <b>относительную ссылку</b>, которая ведёт обратно на твою главную страницу <code>index.html</code> (текст ссылки: «Вернуться на главную»).</li>
+                <li>Добавь ссылку <code>mailto:</code> с выдуманным адресом (например, <code>mailto:coder@kamchatka.ru</code>).</li>
+                <li>Найди в интернете маленькую иконку или картинку, сохрани её и сделай так, чтобы при клике на неё открывался сайт <code>https://yandex.ru</code>.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

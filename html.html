@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML — IT-куб Камчатка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+</div>
+
+<header class="header glass" data-aos="fade-down">
+    <div class="container header__inner">
+        <a href="index.html" class="logo">
+            <span class="logo__icon">🌋</span>
+            <span class="logo__text">IT-куб <b>Камчатка</b></span>
+        </a>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="html.html" class="nav__link is-active">HTML</a></li>
+                <li><a href="css.html" class="nav__link">CSS</a></li>
+                <li><a href="js.html" class="nav__link">JavaScript</a></li>
+            </ul>
+        </nav>
+        <button class="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main class="layout container">
+    <aside class="sidebar glass" data-aos="fade-right">
+        <div class="sidebar__header">
+            <span class="sidebar__icon">&lt;/&gt;</span>
+            <div>
+                <h2 class="sidebar__title">HTML</h2>
+                <p class="sidebar__sub">Язык разметки</p>
+            </div>
+        </div>
+
+        <nav class="sidebar__nav" aria-label="Темы HTML">
+            <button class="sidebar__link is-active" data-topic="intro" data-file="lessons/html/intro.html">
+                <span class="sidebar__num">01</span>
+                <span>Что такое HTML?</span>
+            </button>
+            <button class="sidebar__link" data-topic="grouping" data-file="lessons/html/grouping.html">
+                <span class="sidebar__num">02</span>
+                <span>Группировка</span>
+            </button>
+            <button class="sidebar__link" data-topic="headings" data-file="lessons/html/headings.html">
+                <span class="sidebar__num">03</span>
+                <span>Заголовки</span>
+            </button>
+            <button class="sidebar__link" data-topic="formatting" data-file="lessons/html/formatting.html">
+                <span class="sidebar__num">04</span>
+                <span>Форматирование текста</span>
+            </button>
+            <button class="sidebar__link" data-topic="images" data-file="lessons/html/images.html">
+                <span class="sidebar__num">05</span>
+                <span>Работа с изображениями</span>
+            </button>
+            <button class="sidebar__link" data-topic="lists" data-file="lessons/html/lists.html">
+                <span class="sidebar__num">06</span>
+                <span>Списки</span>
+            </button>
+            <button class="sidebar__link" data-topic="details" data-file="lessons/html/details.html">
+                <span class="sidebar__num">07</span>
+                <span>Элемент details</span>
+            </button>
+            <button class="sidebar__link" data-topic="definitions" data-file="lessons/html/definitions.html">
+                <span class="sidebar__num">08</span>
+                <span>Список определений</span>
+            </button>
+            <button class="sidebar__link" data-topic="tables" data-file="lessons/html/tables.html">
+                <span class="sidebar__num">09</span>
+                <span>Таблицы</span>
+            </button>
+            <button class="sidebar__link" data-topic="links" data-file="lessons/html/links.html">
+                <span class="sidebar__num">10</span>
+                <span>Ссылки</span>
+            </button>
+            <button class="sidebar__link" data-topic="figure" data-file="lessons/html/figure.html">
+                <span class="sidebar__num">11</span>
+                <span>Элементы figure и figcaption</span>
+            </button>
+            <button class="sidebar__link" data-topic="forms-basics" data-file="lessons/html/forms-basics.html">
+                <span class="sidebar__num">12</span>
+                <span>Основы создания форм</span>
+            </button>
+            <button class="sidebar__link" data-topic="forms-checkbox-radio" data-file="lessons/html/forms-checkbox-radio.html">
+                <span class="sidebar__num">13</span>
+                <span>Флажки и переключатели</span>
+            </button>
+            <button class="sidebar__link" data-topic="forms-special" data-file="lessons/html/forms-special.html">
+                <span class="sidebar__num">14</span>
+                <span>Специальные поля</span>
+            </button>
+            <button class="sidebar__link" data-topic="forms-file-select-textarea" data-file="lessons/html/forms-file-select-textarea.html">
+                <span class="sidebar__num">15</span>
+                <span>Файлы, списки и текст</span>
+            </button>
+            <button class="sidebar__link" data-topic="forms-validation" data-file="lessons/html/forms-validation.html">
+                <span class="sidebar__num">16</span>
+                <span>Валидация форм</span>
+            </button>
+            <button class="sidebar__link" data-topic="semantic" data-file="lessons/html/semantic.html">
+                <span class="sidebar__num">17</span>
+                <span>Семантические теги</span>
+            </button>
+        </nav>
+    </aside>
+
+    <article class="content" id="lesson-content">
+        <!-- Сюда будет подгружаться контент -->
+        <div class="loading">
+            <div class="loading__spinner"></div>
+            <p>Загружаем урок...</p>
+        </div>
+    </article>
+</main>
+
+<footer class="footer glass">
+    <div class="container footer__inner">
+        <p>© 2026 IT-куб Камчатка. Создано с ❤️ для юных программистов.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 700, once: true, offset: 40 });
+
+    // Загрузка урока
+    async function loadLesson(file) {
+      const content = document.getElementById('lesson-content');
+      content.innerHTML = '<div class="loading"><div class="loading__spinner"></div><p>Загружаем урок...</p></div>';
+
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Не удалось загрузить урок');
+
+        const html = await response.text();
+        content.innerHTML = html;
+
+        // ✅ ИСПРАВЛЕНИЕ 1: Делаем загруженный блок видимым
+        const newTopic = content.querySelector('.topic-content');
+        if (newTopic) {
+          newTopic.classList.add('is-active');
+        }
+
+        // ✅ ИСПРАВЛЕНИЕ 2: Обновляем AOS, чтобы анимация сработала для нового контента
+        AOS.refresh();
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (error) {
+        console.error('Ошибка загрузки:', error);
+        content.innerHTML = `
+          <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+              <b>Не удалось загрузить урок.</b><br>
+              Убедись, что ты запускаешь сайт через <b>Локальный сервер</b> (Live Server в VS Code), а не просто двойным кликом по файлу.
+            </div>
+          </div>`;
+      }
+    }
+
+    // Переключение тем
+    const buttons = document.querySelectorAll('.sidebar__link');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        loadLesson(btn.dataset.file);
+      });
+    });
+
+    // Загрузка первого урока при старте
+    const firstBtn = document.querySelector('.sidebar__link.is-active');
+    if (firstBtn) loadLesson(firstBtn.dataset.file);
+
+    // Бургер
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    burger?.addEventListener('click', () => nav.classList.toggle('is-open'));
+</script>
+</body>
+</html>

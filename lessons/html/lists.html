@@ -1,0 +1,102 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 06</span>
+        <h1>Списки: &lt;ul&gt;, &lt;ol&gt; и &lt;li&gt;</h1>
+        <p class="topic__lead">
+            Списки есть везде: меню в ресторане, список покупок, шаги для прохождения квеста. В HTML мы можем создавать как маркированные (с точками), так и нумерованные списки.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>• Маркированный список: &lt;ul&gt;</h2>
+        <p>
+            Тег <code>&lt;ul&gt;</code> (Unordered List — неупорядоченный список) создаёт список, где каждый пункт отмечен маркером (точкой, кружком или квадратиком). Порядок пунктов здесь не важен.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Список снаряжения</span>
+            </div>
+            <pre><code><span class="t">&lt;ul&gt;</span>
+  <span class="t">&lt;li&gt;</span>Рюкзак<span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>Термос с чаем<span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>Фотоаппарат<span class="t">&lt;/li&gt;</span>
+<span class="t">&lt;/ul&gt;</span></code></pre>
+        </div>
+
+        <h2>1. Нумерованный список: &lt;ol&gt;</h2>
+        <p>
+            Тег <code>&lt;ol&gt;</code> (Ordered List — упорядоченный список) создаёт список, где каждый пункт пронумерован (1, 2, 3...). Используй его, когда важен порядок действий.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;ol&gt;</span>
+  <span class="t">&lt;li&gt;</span>Открыть редактор кода<span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>Написать HTML-разметку<span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>Сохранить файл и открыть в браузере<span class="t">&lt;/li&gt;</span>
+<span class="t">&lt;/ol&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">🧩</span>
+            <div>
+                <b>Золотое правило:</b> Тег <code>&lt;li&gt;</code> (List Item — элемент списка) <b>всегда</b> должен находиться внутри <code>&lt;ul&gt;</code> или <code>&lt;ol&gt;</code>. Нельзя использовать <code>&lt;li&gt;</code> сам по себе!
+            </div>
+        </div>
+
+        <h2>📁 Вложенные списки</h2>
+        <p>
+            Что, если внутри пункта списка нужно сделать ещё один список? Это называется <b>вложенностью</b>. Просто помести новый <code>&lt;ul&gt;</code> или <code>&lt;ol&gt;</code> <i>внутрь</i> тега <code>&lt;li&gt;</code>.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;ul&gt;</span>
+  <span class="t">&lt;li&gt;</span>Языки программирования
+    <span class="t">&lt;ul&gt;</span>
+      <span class="t">&lt;li&gt;</span>HTML (разметка)<span class="t">&lt;/li&gt;</span>
+      <span class="t">&lt;li&gt;</span>CSS (стили)<span class="t">&lt;/li&gt;</span>
+      <span class="t">&lt;li&gt;</span>JavaScript (логика)<span class="t">&lt;/li&gt;</span>
+    <span class="t">&lt;/ul&gt;</span>
+  <span class="t">&lt;/li&gt;</span>
+  <span class="t">&lt;li&gt;</span>Графические редакторы<span class="t">&lt;/li&gt;</span>
+<span class="t">&lt;/ul&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно про отступы:</b> Браузеру всё равно, как ты расставишь пробелы и переносы строк. Но для <b>тебя</b> и других программистов очень важно делать отступы (Tab), чтобы видеть вложенность. Код должен быть читаемым, как лесенка!
+            </div>
+        </div>
+
+        <h2>📖 Список описаний: &lt;dl&gt;</h2>
+        <p>
+            Иногда нужно создать список пар «Термин — Описание» (как в словаре). Для этого используется специальный тег <code>&lt;dl&gt;</code> (Description List).
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;dl&gt;</span>
+  <span class="t">&lt;dt&gt;</span>HTML<span class="t">&lt;/dt&gt;</span>
+  <span class="t">&lt;dd&gt;</span>Язык гипертекстовой разметки.<span class="t">&lt;/dd&gt;</span>
+
+  <span class="t">&lt;dt&gt;</span>Браузер<span class="t">&lt;/dt&gt;</span>
+  <span class="t">&lt;dd&gt;</span>Программа для просмотра веб-страниц.<span class="t">&lt;/dd&gt;</span>
+<span class="t">&lt;/dl&gt;</span></code></pre>
+        </div>
+        <p>Здесь <code>&lt;dt&gt;</code> (Definition Term) — это сам термин, а <code>&lt;dd&gt;</code> (Definition Description) — его расшифровка.</p>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Квест по Камчатке»</h3>
+            <p>Создай файл <code>quest.html</code> и составь план путешествия:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Используй <code>&lt;h1&gt;</code> для названия квеста (например, «Тайны вулканов»).</li>
+                <li>Создай <b>нумерованный список</b> <code>&lt;ol&gt;</code> из 3-4 основных этапов путешествия.</li>
+                <li>Внутри одного из этапов (внутри тега <code>&lt;li&gt;</code>) создай <b>вложенный маркированный список</b> <code>&lt;ul&gt;</code> с вещами, которые нужно взять с собой на этом этапе.</li>
+                <li>Внизу добавь <b>список описаний</b> <code>&lt;dl&gt;</code> с двумя терминами, которые встретились в квесте (например, «Кальдера» и «Гейзер»). </li>
+                <li>Сохрани файл, открой в браузере и проверь, что все отступы отображаются красиво!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

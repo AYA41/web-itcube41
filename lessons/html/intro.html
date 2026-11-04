@@ -1,0 +1,95 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 01</span>
+        <h1>Что такое HTML и как он работает?</h1>
+        <p class="topic__lead">
+            HTML (HyperText Markup Language) — это язык разметки. Если представить сайт как дом, то HTML — это его фундамент, стены и крыша. Он говорит браузеру: «Здесь будет заголовок, здесь картинка, а здесь кнопка».
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🧱 Что такое тег?</h2>
+        <p>
+            HTML состоит из <b>тегов</b>. Тег — это специальная команда, спрятанная в угловых скобках <code>&lt; &gt;</code>.
+            Большинство тегов парные, как две половинки бутерброда: есть открывающий тег и закрывающий (с косой чертой <code>/</code>).
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Пример парного тега</span>
+            </div>
+            <pre><code><span class="t">&lt;p&gt;</span>Привет, Камчатка! Я учусь кодить.<span class="t">&lt;/p&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">🥪</span>
+            <div>
+                <b>Аналогия с бутербродом:</b><br>
+                <code>&lt;p&gt;</code> — это нижний кусок хлеба (открытие).<br>
+                Текст — это начинка.<br>
+                <code>&lt;/p&gt;</code> — это верхний кусок хлеба (закрытие).
+            </div>
+        </div>
+
+        <p>Некоторые теги <b>одиночные</b> (им не нужно ничего закрывать), например, перенос строки <code>&lt;br&gt;</code> или картинка <code>&lt;img&gt;</code>.</p>
+
+        <h2>🏠 Скелет любой HTML-страницы</h2>
+        <p>Каждая страница в интернете начинается с одинаковой базовой структуры. Вот как она выглядит:</p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Базовый шаблон</span>
+            </div>
+            <pre><code><span class="d">&lt;!DOCTYPE html&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="v">"ru"</span><span class="t">&gt;</span>
+  <span class="t">&lt;head&gt;</span>
+    <span class="t">&lt;meta</span> <span class="a">charset</span>=<span class="v">"UTF-8"</span><span class="t">&gt;</span>
+    <span class="t">&lt;title&gt;</span>Мой первый сайт<span class="t">&lt;/title&gt;</span>
+  <span class="t">&lt;/head&gt;</span>
+  <span class="t">&lt;body&gt;</span>
+    <span class="t">&lt;h1&gt;</span>Привет, мир!<span class="t">&lt;/h1&gt;</span>
+    <span class="t">&lt;p&gt;</span>Это мой самый первый текст на сайте.<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;/body&gt;</span>
+<span class="t">&lt;/html&gt;</span></code></pre>
+        </div>
+
+        <h2>🧩 Разбираем по частям:</h2>
+        <ul class="topic__list">
+            <li><code>&lt;!DOCTYPE html&gt;</code> — «Паспорт» документа. Говорит браузеру: «Я современный HTML5, отображай меня правильно!»</li>
+            <li><code>&lt;html&gt;</code> — Главная «коробка», внутри которой лежит весь сайт.</li>
+            <li><code>&lt;head&gt;</code> — «Мозг» сайта. Здесь хранятся настройки, кодировка и название вкладки (<code>&lt;title&gt;</code>). <b>Этого не видно на самой странице!</b></li>
+            <li><code>&lt;body&gt;</code> — «Тело» сайта. Здесь находится всё, что пользователь видит на экране: тексты, картинки, кнопки.</li>
+        </ul>
+
+        <h2>⚙️ Что такое атрибуты?</h2>
+        <p>
+            Тегам можно давать дополнительные настройки. Они пишутся внутри открывающего тега и называются <b>атрибутами</b>.
+            Атрибут всегда состоит из имени и значения в кавычках: <code>имя="значение"</code>.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Атрибут href указывает, куда ведёт ссылка --&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"https://it-kamchatka.ru"</span><span class="t">&gt;</span>Сайт IT-куба<span class="t">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Атрибут src указывает путь к картинке --&gt;</span>
+<span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"volcano.jpg"</span> <span class="a">alt</span>=<span class="v">"Вулкан"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Твоё первое задание</h3>
+            <p>Давай создадим твою первую веб-страницу прямо сейчас!</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Создай на рабочем столе папку <code>my-site</code>.</li>
+                <li>Открой «Блокнот» (или OpenIDE, если он есть).</li>
+                <li>Скопируй туда код из блока «Базовый шаблон» выше.</li>
+                <li>Замени текст внутри <code>&lt;h1&gt;</code> на своё имя, а в <code>&lt;p&gt;</code> напиши, почему ты хочешь учиться программировать.</li>
+                <li>Нажми «Файл» → «Сохранить как...». Назови файл <b>index.html</b> (важно, чтобы в конце было именно <code>.html</code>, а не <code>.txt</code>!).</li>
+                <li>Дважды кликни по файлу <code>index.html</code>. Он откроется в браузере. Поздравляю, ты создал свой первый сайт! 🎉</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

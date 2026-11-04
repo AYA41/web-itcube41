@@ -1,0 +1,101 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 05</span>
+        <h1>Работа с изображениями: тег &lt;img&gt;</h1>
+        <p class="topic__lead">
+            Без картинок интернет был бы похож на огромную скучную книгу. Тег <code>&lt;img&gt;</code> (от слова <i>image</i>) — это волшебное окно, через которое на твой сайт попадает фотография, рисунок или мем.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🖼️ Как вставить картинку?</h2>
+        <p>
+            В отличие от большинства тегов, <code>&lt;img&gt;</code> — <b>одиночный</b>. У него нет закрывающей пары, потому что внутрь него ничего не кладётся. Вся информация передаётся через <b>атрибуты</b>.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Базовый синтаксис</span>
+            </div>
+            <pre><code><span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"путь_к_картинке.jpg"</span> <span class="a">alt</span>=<span class="v">"Описание картинки"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>🔑 Два главных атрибута</h2>
+        <ul class="topic__list">
+            <li>
+                <b><code>src</code> (source — источник)</b><br>
+                Указывает, <i>где</i> лежит картинка. Это может быть ссылка из интернета или имя файла в твоей папке.
+            </li>
+            <li>
+                <b><code>alt</code> (alternative — альтернатива)</b><br>
+                Текстовое описание картинки. Если картинка не загрузится (плохой интернет или ошибка в имени файла), браузер покажет этот текст.
+            </li>
+        </ul>
+
+        <div class="info info--tip">
+            <span class="info__icon">♿</span>
+            <div>
+                <b>Почему alt так важен?</b><br>
+                1. <b>Доступность:</b> Программы для незрячих людей читают этот текст вслух.<br>
+                2. <b>Поиск:</b> Роботы Яндекса и Google не «видят» картинки, они читают <code>alt</code>, чтобы понять, о чём изображение.<br>
+                3. <b>Надёжность:</b> Если картинка сломалась, пользователь хотя бы поймёт, что там должно было быть.
+            </div>
+        </div>
+
+        <h2>📂 Откуда брать картинки? (Пути к файлам)</h2>
+        <p>Есть два способа указать путь в атрибуте <code>src</code>:</p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- 1. Абсолютный путь (ссылка из интернета) --&gt;</span>
+<span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"https://example.com/volcano.jpg"</span> <span class="a">alt</span>=<span class="v">"Вулкан"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- 2. Относительный путь (файл лежит рядом с твоим HTML) --&gt;</span>
+<span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"cat.png"</span> <span class="a">alt</span>=<span class="v">"Мой кот"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- 3. Относительный путь (файл лежит в папке images) --&gt;</span>
+<span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"images/bear.jpg"</span> <span class="a">alt</span>=<span class="v">"Медведь на Камчатке"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Частая ошибка новичков:</b> Опечатки в имени файла! <code>Photo.JPG</code>, <code>photo.jpg</code> и <code>photo.jpeg</code> — это <b>три разных файла</b> для компьютера. Следи за регистром букв и расширениями!
+            </div>
+        </div>
+
+        <h2>📏 Размер картинки: width и height</h2>
+        <p>
+            Ты можешь задать ширину (<code>width</code>) и высоту (<code>height</code>) прямо в HTML. Значения указываются в пикселях (без слова "px").
+        </p>
+        <div class="code-block">
+            <pre><code><span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"logo.png"</span> <span class="a">alt</span>=<span class="v">"Логотип"</span> <span class="a">width</span>=<span class="v">"200"</span> <span class="a">height</span>=<span class="v">"100"</span><span class="t">&gt;</span></code></pre>
+        </div>
+        <p>
+            <b>Совет:</b> Если указать только <code>width</code> или только <code>height</code>, браузер автоматически сохранит правильные пропорции картинки, и она не сплющится! (Хотя в современной вёрстке размеры чаще задают через <b>CSS</b>).
+        </p>
+
+        <h2>🎨 Кратко о форматах</h2>
+        <ul class="topic__list">
+            <li><b>JPG / JPEG</b> — для фотографий (много цветов, маленький вес).</li>
+            <li><b>PNG</b> — для картинок с прозрачным фоном или чёткими линиями (логотипы, иконки).</li>
+            <li><b>GIF</b> — для простых анимаций.</li>
+            <li><b>SVG</b> — векторная графика, которая не теряет качество при увеличении (идеально для иконок).</li>
+        </ul>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Галерея Камчатки»</h3>
+            <p>Давай создадим мини-галерею!</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Создай папку <code>gallery</code>, а внутри неё папку <code>images</code>.</li>
+                <li>Скачай из интернета 2-3 красивые картинки (например, вулкан, медведь или океан) и сохрани их в папку <code>images</code>. Назови их простыми именами на английском, например: <code>volcano.jpg</code>, <code>bear.png</code>.</li>
+                <li>В папке <code>gallery</code> создай файл <code>index.html</code>.</li>
+                <li>Напиши базовую структуру HTML, добавь заголовок <code>&lt;h1&gt;</code> «Моя галерея».</li>
+                <li>Вставь свои картинки, используя <b>относительный путь</b> (например, <code>src="images/volcano.jpg"</code>) и обязательно заполни атрибут <code>alt</code>!</li>
+                <li>Попробуй задать одной из картинок атрибут <code>width="300"</code> и посмотри, что изменится.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

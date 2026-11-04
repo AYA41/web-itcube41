@@ -1,0 +1,95 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 12</span>
+        <h1>Основы форм: поля, кнопки и метки</h1>
+        <p class="topic__lead">
+            Формы — это способ, с помощью которого сайт «разговаривает» с пользователем. Регистрация, поиск, отправка сообщений — всё это работает благодаря формам. Давай научимся их создавать!
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>📝 Контейнер формы: &lt;form&gt;</h2>
+        <p>
+            Любая форма начинается с тега-обёртки <code>&lt;form&gt;</code>. Он как папка, в которую мы складываем все поля для ввода. У него есть два главных атрибута:
+        </p>
+        <ul class="topic__list">
+            <li><code>action</code> — адрес (URL), куда будут отправлены данные (пока мы можем оставить его пустым <code>action=""</code> или поставить <code>#</code>).</li>
+            <li><code>method</code> — способ отправки: <code>GET</code> (данные видны в адресной строке) или <code>POST</code> (данные скрыты, используется для паролей и важных данных).</li>
+        </ul>
+
+        <h2>🏷️ Метка и поле: &lt;label&gt; и &lt;input&gt;</h2>
+        <p>
+            Самое важное правило форм: <b>у каждого поля ввода должна быть метка (подпись)</b>. Для этого используется тег <code>&lt;label&gt;</code>.
+        </p>
+        <p>
+            Чтобы связать метку с полем, используют «волшебную ниточку»: атрибут <code>for</code> у метки должен совпадать с атрибутом <code>id</code> у поля ввода.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Связь label и input</span>
+            </div>
+            <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"username"</span><span class="t">&gt;</span>Ваше имя:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">id</span>=<span class="v">"username"</span> <span class="a">name</span>=<span class="v">"username"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">🖱️</span>
+            <div>
+                <b>Зачем это нужно?</b><br>
+                1. <b>Удобство:</b> Если кликнуть по тексту в <code>&lt;label&gt;</code>, курсор автоматически прыгнет в связанное поле ввода!<br>
+                2. <b>Доступность:</b> Программы для чтения с экрана озвучивают название поля благодаря этой связке.
+            </div>
+        </div>
+
+        <h2>🔢 Ввод чисел: type="number"</h2>
+        <p>
+            Если нам нужно, чтобы пользователь ввёл только цифры (например, возраст или количество рюкзаков), мы меняем тип поля на <code>number</code>. Можно даже ограничить диапазон!
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"backpacks"</span><span class="t">&gt;</span>Количество рюкзаков:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"number"</span> <span class="a">id</span>=<span class="v">"backpacks"</span> <span class="a">name</span>=<span class="v">"backpacks"</span> <span class="a">min</span>=<span class="v">"1"</span> <span class="a">max</span>=<span class="v">"10"</span> <span class="a">step</span>=<span class="v">"1"</span><span class="t">&gt;</span></code></pre>
+        </div>
+        <ul class="topic__list">
+            <li><code>min</code> и <code>max</code> — минимальное и максимальное значение.</li>
+            <li><code>step</code> — шаг изменения (по умолчанию 1, но можно сделать 0.5 или 10).</li>
+        </ul>
+
+        <h2>🚀 Кнопки и автофокус</h2>
+        <p>Чтобы отправить форму, нужна кнопка. А чтобы сделать сайт чуть-чуть «умнее», можно использовать автофокус.</p>
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Автофокус сразу ставит курсор в это поле при загрузке страницы --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"text"</span> <span class="a">id</span>=<span class="v">"name"</span> <span class="a">autofocus</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- Кнопка отправки формы --&gt;</span>
+<span class="t">&lt;button</span> <span class="a">type</span>=<span class="v">"submit"</span><span class="t">&gt;</span>Отправить заявку<span class="t">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Обычная кнопка (пока ничего не делает, пригодится для JavaScript) --&gt;</span>
+<span class="t">&lt;button</span> <span class="a">type</span>=<span class="v">"button"</span><span class="t">&gt;</span>Просто кнопка<span class="t">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно:</b> Не путай <code>id</code> и <code>name</code> в полях ввода.<br>
+                <code>id</code> — нужен для связи с <code>&lt;label&gt;</code> и для CSS/JS (он уникален на странице).<br>
+                <code>name</code> — это имя, под которым данные уйдут на сервер (как подпись на конверте).
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Заявка на экспедицию»</h3>
+            <p>Создай файл <code>expedition-form.html</code> и сделай простую форму регистрации:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Создай тег <code>&lt;form&gt;</code> с атрибутом <code>action="#"</code>.</li>
+                <li>Добавь поле для ввода имени (<code>type="text"</code>) с меткой <code>&lt;label&gt;</code>. Добавь атрибут <code>autofocus</code>, чтобы курсор сразу был там.</li>
+                <li>Добавь поле для ввода возраста (<code>type="number"</code>) с ограничением <code>min="7"</code> и <code>max="99"</code>.</li>
+                <li>Внизу добавь кнопку <code>&lt;button type="submit"&gt;</code> с текстом «Отправить заявку».</li>
+                <li>Не забудь прописать уникальные <code>id</code> и <code>name</code> для каждого поля и связать их с <code>for</code> в метках!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

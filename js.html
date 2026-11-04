@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript — IT-куб Камчатка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+</div>
+
+<header class="header glass" data-aos="fade-down">
+    <div class="container header__inner">
+        <a href="index.html" class="logo">
+            <span class="logo__icon">🌋</span>
+            <span class="logo__text">IT-куб <b>Камчатка</b></span>
+        </a>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="html.html" class="nav__link">HTML</a></li>
+                <li><a href="css.html" class="nav__link">CSS</a></li>
+                <li><a href="js.html" class="nav__link is-active">JavaScript</a></li>
+            </ul>
+        </nav>
+        <button class="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main class="layout container">
+    <aside class="sidebar glass" data-aos="fade-right">
+        <div class="sidebar__header">
+            <span class="sidebar__icon sidebar__icon--js">JS</span>
+            <div>
+                <h2 class="sidebar__title">JavaScript</h2>
+                <p class="sidebar__sub">Оживляем сайт</p>
+            </div>
+        </div>
+
+        <nav class="sidebar__nav" aria-label="Темы JavaScript">
+            <button class="sidebar__link is-active" data-topic="intro" data-file="lessons/js/intro.html">
+                <span class="sidebar__num">01</span>
+                <span>Что такое JS?</span>
+            </button>
+            <button class="sidebar__link" data-topic="vars" data-file="lessons/js/vars.html">
+                <span class="sidebar__num">02</span>
+                <span>Переменные</span>
+            </button>
+            <button class="sidebar__link" data-topic="types" data-file="lessons/js/types.html">
+                <span class="sidebar__num">03</span>
+                <span>Типы данных</span>
+            </button>
+            <button class="sidebar__link" data-topic="conditions" data-file="lessons/js/conditions.html">
+                <span class="sidebar__num">04</span>
+                <span>Условия</span>
+            </button>
+            <button class="sidebar__link" data-topic="loops" data-file="lessons/js/loops.html">
+                <span class="sidebar__num">05</span>
+                <span>Циклы</span>
+            </button>
+            <button class="sidebar__link" data-topic="functions" data-file="lessons/js/functions.html">
+                <span class="sidebar__num">06</span>
+                <span>Функции</span>
+            </button>
+            <button class="sidebar__link" data-topic="dom" data-file="lessons/js/dom.html">
+                <span class="sidebar__num">07</span>
+                <span>Работа с DOM</span>
+            </button>
+            <button class="sidebar__link" data-topic="events" data-file="lessons/js/events.html">
+                <span class="sidebar__num">08</span>
+                <span>События</span>
+            </button>
+        </nav>
+    </aside>
+
+    <article class="content" id="lesson-content">
+        <div class="loading">
+            <div class="loading__spinner"></div>
+            <p>Загружаем урок...</p>
+        </div>
+    </article>
+</main>
+
+<footer class="footer glass">
+    <div class="container footer__inner">
+        <p>© 2026 IT-куб Камчатка. Создано с ❤️ для юных программистов.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 700, once: true, offset: 40 });
+
+    // Загрузка урока
+    async function loadLesson(file) {
+      const content = document.getElementById('lesson-content');
+      content.innerHTML = '<div class="loading"><div class="loading__spinner"></div><p>Загружаем урок...</p></div>';
+
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Не удалось загрузить урок');
+
+        const html = await response.text();
+        content.innerHTML = html;
+
+        // Делаем загруженный блок видимым
+        const newTopic = content.querySelector('.topic-content');
+        if (newTopic) {
+          newTopic.classList.add('is-active');
+        }
+
+        // Обновляем AOS для новых элементов
+        AOS.refresh();
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (error) {
+        console.error('Ошибка загрузки:', error);
+        content.innerHTML = `
+          <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+              <b>Не удалось загрузить урок.</b><br>
+              Убедись, что ты запускаешь сайт через <b>Локальный сервер</b> (Live Server в VS Code), а не просто двойным кликом по файлу.
+            </div>
+          </div>`;
+      }
+    }
+
+    // Переключение тем
+    const buttons = document.querySelectorAll('.sidebar__link');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        loadLesson(btn.dataset.file);
+      });
+    });
+
+    // Загрузка первого урока при старте
+    const firstBtn = document.querySelector('.sidebar__link.is-active');
+    if (firstBtn) loadLesson(firstBtn.dataset.file);
+
+    // Бургер
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    burger?.addEventListener('click', () => nav.classList.toggle('is-open'));
+</script>
+</body>
+</html>

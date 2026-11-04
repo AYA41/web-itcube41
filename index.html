@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT-куб Камчатка — учимся программировать</title>
+    <meta name="description" content="Обучающий сайт для детей: HTML, CSS и JavaScript. IT-куб Камчатка." />
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <!-- AOS (анимации при скролле) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Декоративные "шары" на фоне для Liquid Glass -->
+<div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+</div>
+
+<!-- Шапка с меню -->
+<header class="header glass" data-aos="fade-down">
+    <div class="container header__inner">
+        <a href="index.html" class="logo">
+            <span class="logo__icon">🌋</span>
+            <span class="logo__text">IT-куб <b>Камчатка</b></span>
+        </a>
+
+        <nav class="nav" aria-label="Главное меню">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link is-active">Главная</a></li>
+                <li><a href="html.html" class="nav__link">HTML</a></li>
+                <li><a href="css.html" class="nav__link">CSS</a></li>
+                <li><a href="js.html" class="nav__link">JavaScript</a></li>
+            </ul>
+        </nav>
+
+        <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Приветствие -->
+<main>
+    <section class="hero">
+        <div class="container hero__inner">
+            <div class="hero__content" data-aos="fade-right" data-aos-duration="900">
+                <span class="badge glass">🚀 Добро пожаловать в мир кода</span>
+                <h1 class="hero__title">
+                    Учимся создавать <span class="gradient-text">сайты</span> играя
+                </h1>
+                <p class="hero__subtitle">
+                    HTML, CSS и JavaScript — три кита веб-разработки.
+                    Здесь ты найдёшь простые уроки, примеры и задания для начинающих программистов.
+                </p>
+                <div class="hero__actions">
+                    <a href="html.html" class="btn btn--primary">Начать учиться</a>
+                </div>
+            </div>
+
+            <div class="hero__visual" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="code-window glass">
+                    <div class="code-window__dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <pre class="code-window__code"><code>&lt;h1&gt;Привет, Камчатка!&lt;/h1&gt;
+&lt;p&gt;Я учусь кодить 🌋&lt;/p&gt;
+&lt;button&gt;Запуск 🚀&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Разделы (карточки с Liquid Glass) -->
+    <section class="topics">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Выбери свой раздел</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Каждый раздел — это отдельное путешествие. Начни с того, что интересно!
+            </p>
+
+            <div class="topics__grid">
+                <a href="html.html" class="topic glass" data-aos="fade-up" data-aos-delay="100">
+                    <div class="topic__icon topic__icon--html">&lt;/&gt;</div>
+                    <h3 class="topic__title">HTML</h3>
+                    <p class="topic__desc">Скелет любой страницы: заголовки, картинки, ссылки и формы.</p>
+                    <span class="topic__more">Перейти →</span>
+                </a>
+
+                <a href="css.html" class="topic glass" data-aos="fade-up" data-aos-delay="200">
+                    <div class="topic__icon topic__icon--css">{ }</div>
+                    <h3 class="topic__title">CSS</h3>
+                    <p class="topic__desc">Красим сайт: цвета, шрифты, анимации и красивая вёрстка.</p>
+                    <span class="topic__more">Перейти →</span>
+                </a>
+
+                <a href="js.html" class="topic glass" data-aos="fade-up" data-aos-delay="300">
+                    <div class="topic__icon topic__icon--js">JS</div>
+                    <h3 class="topic__title">JavaScript</h3>
+                    <p class="topic__desc">Оживляем страницу: кнопки, игры, калькуляторы и магия.</p>
+                    <span class="topic__more">Перейти →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Подвал -->
+<footer class="footer glass">
+    <div class="container footer__inner">
+        <p>© 2026 IT-куб Камчатка. Создано с ❤️ для юных программистов.</p>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

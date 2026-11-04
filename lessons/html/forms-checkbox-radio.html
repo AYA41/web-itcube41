@@ -1,0 +1,88 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 13</span>
+        <h1>Флажки и переключатели: checkbox и radio</h1>
+        <p class="topic__lead">
+            Что делать, если нужно дать пользователю выбор? Если вариантов много и можно выбрать несколько — используем флажки. Если выбрать можно только один — используем переключатели.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>✅ Флажок (Checkbox): «Выбери всё, что нравится»</h2>
+        <p>
+            Тег <code>&lt;input type="checkbox"&gt;</code> создаёт маленький квадратик. Пользователь может отметить <b>ноль, один или несколько</b> вариантов сразу.
+        </p>
+        <p>
+            <b>Аналогия:</b> Список вещей в рюкзак. Ты можешь взять и фонарик, и бутерброд, и фотоаппарат одновременно.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Пример чекбоксов</span>
+            </div>
+            <pre><code><span class="t">&lt;p&gt;</span>Что возьмём в поход?<span class="t">&lt;/p&gt;</span>
+
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"checkbox"</span> <span class="a">id</span>=<span class="v">"item1"</span> <span class="a">name</span>=<span class="v">"gear"</span> <span class="a">value</span>=<span class="v">"flashlight"</span><span class="t">&gt;</span>
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"item1"</span><span class="t">&gt;</span>Фонарик<span class="t">&lt;/label&gt;</span><span class="t">&lt;br&gt;</span>
+
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"checkbox"</span> <span class="a">id</span>=<span class="v">"item2"</span> <span class="a">name</span>=<span class="v">"gear"</span> <span class="a">value</span>=<span class="v">"camera"</span> <span class="a">checked</span><span class="t">&gt;</span>
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"item2"</span><span class="t">&gt;</span>Фотоаппарат (уже отмечено!)<span class="t">&lt;/label&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">💡</span>
+            <div>
+                <b>Зачем нужен атрибут <code>value</code>?</b><br>
+                Текст внутри <code>&lt;label&gt;</code> видит <b>человек</b>. А значение атрибута <code>value</code> увидит <b>компьютер</b> (сервер), когда форма будет отправлена. Именно <code>value</code> передаёт данные!
+            </div>
+        </div>
+
+        <h2>📻 Переключатель (Radio): «Выбери только один»</h2>
+        <p>
+            Тег <code>&lt;input type="radio"&gt;</code> создаёт круглую кнопку. Из группы таких кнопок пользователь может выбрать <b>строго одну</b>. Если нажать на другую, предыдущая автоматически отключится.
+        </p>
+        <p>
+            <b>Аналогия:</b> Кнопки на старом автомобильном радио. Когда ты вдавливаешь одну, все остальные выскакивают.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;p&gt;</span>Как доберёмся до вулкана?<span class="t">&lt;/p&gt;</span>
+
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"radio"</span> <span class="a">id</span>=<span class="v">"transport1"</span> <span class="a">name</span>=<span class="v">"transport"</span> <span class="a">value</span>=<span class="v">"bus"</span><span class="t">&gt;</span>
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"transport1"</span><span class="t">&gt;</span>На автобусе<span class="t">&lt;/label&gt;</span><span class="t">&lt;br&gt;</span>
+
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"radio"</span> <span class="a">id</span>=<span class="v">"transport2"</span> <span class="a">name</span>=<span class="v">"transport"</span> <span class="a">value</span>=<span class="v">"heli"</span><span class="t">&gt;</span>
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"transport2"</span><span class="t">&gt;</span>На вертолёте<span class="t">&lt;/label&gt;</span><span class="t">&lt;br&gt;</span>
+
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"radio"</span> <span class="a">id</span>=<span class="v">"transport3"</span> <span class="a">name</span>=<span class="v">"transport"</span> <span class="a">value</span>=<span class="v">"foot"</span> <span class="a">checked</span><span class="t">&gt;</span>
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"transport3"</span><span class="t">&gt;</span>Пешком (уже отмечено!)<span class="t">&lt;/label&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>САМОЕ ГЛАВНОЕ ПРАВИЛО:</b><br>
+                Чтобы переключатели работали как группа (отключались при выборе другого), у них <b>должен быть одинаковый атрибут <code>name</code></b>! В примере выше у всех трёх вариантов <code>name="transport"</code>. Если имена будут разными, можно будет выбрать все варианты сразу, и магия сломается.
+            </div>
+        </div>
+
+        <h2>🔑 Атрибут <code>checked</code></h2>
+        <p>
+            Если ты хочешь, чтобы при загрузке страницы какой-то вариант уже был выбран по умолчанию (например, самый популярный), просто добавь слово <code>checked</code> внутрь тега <code>&lt;input&gt;</code>. Ему не нужно значение, он работает как переключатель «вкл/выкл».
+        </p>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Анкета туриста»</h3>
+            <p>Создай файл <code>tourist-anketa.html</code> и добавь в него форму с выбором:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Создай группу <b>переключателей</b> (radio) с вопросом «Твой уровень подготовки:». Варианты: «Новичок», «Любитель», «Профи». У всех должен быть <b>одинаковый</b> <code>name</code>, но разные <code>id</code> и <code>value</code>.</li>
+                <li>Создай группу <b>флажков</b> (checkbox) с вопросом «Что ты любишь фотографировать?». Варианты: «Вулканы», «Медведи», «Океан», «Северное сияние». Здесь <code>name</code> тоже может быть одинаковым (например, <code>name="photo_interest"</code>).</li>
+                <li>Сделай так, чтобы вариант «Новичок» и вариант «Вулканы» были отмечены по умолчанию с помощью атрибута <code>checked</code>.</li>
+                <li>Не забудь обернуть каждый вариант в правильную пару <code>&lt;input&gt;</code> + <code>&lt;label&gt;</code> с атрибутами <code>for</code> и <code>id</code>!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

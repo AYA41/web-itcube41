@@ -1,0 +1,111 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 10</span>
+        <h1>Таблицы: &lt;table&gt;, &lt;tr&gt;, &lt;td&gt; и &lt;th&gt;</h1>
+        <p class="topic__lead">
+            Таблицы помогают упорядочить данные в виде строк и столбцов, как в школьном расписании, таблице умножения или прайс-листе. Давай разберёмся, как их создавать!
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🏗️ Базовая структура таблицы</h2>
+        <p>
+            Представь таблицу как конструктор. Чтобы её собрать, нам нужно три основных элемента:
+        </p>
+        <ul class="topic__list">
+            <li><code>&lt;table&gt;</code> — общая «коробка», которая говорит браузеру: «Здесь начинается таблица».</li>
+            <li><code>&lt;tr&gt;</code> (Table Row) — <b>строка</b> таблицы.</li>
+            <li><code>&lt;td&gt;</code> (Table Data) — <b>ячейка</b> с данными внутри строки.</li>
+        </ul>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Простая таблица 2x2</span>
+            </div>
+            <pre><code><span class="t">&lt;table&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 1 (строка 1, столбец 1)<span class="t">&lt;/td&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 2 (строка 1, столбец 2)<span class="t">&lt;/td&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 3 (строка 2, столбец 1)<span class="t">&lt;/td&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 4 (строка 2, столбец 2)<span class="t">&lt;/td&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+<span class="t">&lt;/table&gt;</span></code></pre>
+        </div>
+
+        <h2>👑 Заголовки таблиц: &lt;th&gt;</h2>
+        <p>
+            Обычные ячейки <code>&lt;td&gt;</code> хороши для данных, но для <b>заголовков</b> столбцов или строк лучше использовать тег <code>&lt;th&gt;</code> (Table Header).
+            Браузер автоматически сделает текст внутри него <b>жирным</b> и выровняет по центру, а программы для чтения с экрана поймут, что это заголовок.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;table&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="t">&lt;th&gt;</span>Имя<span class="t">&lt;/th&gt;</span>
+    <span class="t">&lt;th&gt;</span>Возраст<span class="t">&lt;/th&gt;</span>
+    <span class="t">&lt;th&gt;</span>Город<span class="t">&lt;/th&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="t">&lt;td&gt;</span>Аня<span class="t">&lt;/td&gt;</span>
+    <span class="t">&lt;td&gt;</span>12<span class="t">&lt;/td&gt;</span>
+    <span class="t">&lt;td&gt;</span>Петропавловск-Камчатский<span class="t">&lt;/td&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+<span class="t">&lt;/table&gt;</span></code></pre>
+        </div>
+
+        <h2>🧩 Семантические части таблицы</h2>
+        <p>
+            Если таблица большая, её принято делить на три логические части. Это не меняет внешний вид, но делает код профессиональным и понятным:
+        </p>
+        <ul class="topic__list">
+            <li><code>&lt;thead&gt;</code> (Table Head) — «голова» таблицы. Здесь живут строки с заголовками <code>&lt;th&gt;</code>.</li>
+            <li><code>&lt;tbody&gt;</code> (Table Body) — «тело» таблицы. Здесь находятся основные данные <code>&lt;td&gt;</code>.</li>
+            <li><code>&lt;tfoot&gt;</code> (Table Foot) — «подвал» таблицы. Используется для итогов (например, «Всего: 1000₽»). <i>Важно: в коде &lt;tfoot&gt; часто пишут до &lt;tbody&gt;, чтобы браузер загрузил итоги раньше!</i></li>
+        </ul>
+
+        <h2>🔮 Магия объединения: colspan и rowspan</h2>
+        <p>
+            Иногда нужно, чтобы одна ячейка занимала место двух или более соседних. Для этого есть два волшебных атрибута:
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;table&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="c">&lt;!-- Эта ячейка растянется на 2 столбца --&gt;</span>
+    <span class="t">&lt;th</span> <span class="a">colspan</span>=<span class="v">"2"</span><span class="t">&gt;</span>Общий заголовок<span class="t">&lt;/th&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+  <span class="t">&lt;tr&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 1<span class="t">&lt;/td&gt;</span>
+    <span class="t">&lt;td&gt;</span>Ячейка 2<span class="t">&lt;/td&gt;</span>
+  <span class="t">&lt;/tr&gt;</span>
+<span class="t">&lt;/table&gt;</span></code></pre>
+        </div>
+        <ul class="topic__list">
+            <li><code>colspan="N"</code> — объединяет <b>N столбцов</b> (работает горизонтально).</li>
+            <li><code>rowspan="N"</code> — объединяет <b>N строк</b> (работает вертикально).</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно про внешний вид:</b> По умолчанию HTML-таблицы выглядят как просто текст, слепленный вместе, без видимых границ. Чтобы добавить сетку, отступы и цвета, мы будем использовать <b>CSS</b> (тема <code>border</code>, <code>padding</code> и <code>border-collapse</code>). Не пугайся, если пока таблица выглядит «скучно» — это нормально!
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Расписание экспедиции»</h3>
+            <p>Создай файл <code>schedule.html</code> и составь план похода на вулкан:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Создай таблицу <code>&lt;table&gt;</code>.</li>
+                <li>Используй <code>&lt;thead&gt;</code> и <code>&lt;th&gt;</code> для заголовков столбцов: «Время», «Мероприятие», «Снаряжение».</li>
+                <li>Используй <code>&lt;tbody&gt;</code> для добавления минимум 3 строк <code>&lt;tr&gt;</code> с данными <code>&lt;td&gt;</code> (например, "08:00", "Сбор у подножия", "Рюкзаки, вода").</li>
+                <li>Попробуй добавить итоговую строку в <code>&lt;tfoot&gt;</code> и объедини ячейки с помощью <code>colspan="2"</code> для текста «Итого: 1 день в пути».</li>
+                <li>Сохрани и открой в браузере. Да, пока это просто текст, но структура идеальна! В следующем модуле мы научимся делать из этого красивую сетку с помощью CSS.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

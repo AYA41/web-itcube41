@@ -1,0 +1,165 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 14</span>
+        <h1>Специальные поля ввода: email, tel, date, color и другие</h1>
+        <p class="topic__lead">
+            HTML5 добавил нам целую коллекцию «умных» полей. Они не просто выглядят по-другому — браузер сам помогает пользователю: открывает календарь, показывает цветовую палитру или включает нужную клавиатуру на телефоне.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🔒 Секретный ввод: type="password"</h2>
+        <p>
+            Когда пользователь вводит пароль, его не должны видеть посторонние. Поле <code>type="password"</code> автоматически скрывает символы за звёздочками или точками.
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"pass"</span><span class="t">&gt;</span>Придумай пароль:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"password"</span> <span class="a">id</span>=<span class="v">"pass"</span> <span class="a">name</span>=<span class="v">"password"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>📧 Электронная почта: type="email"</h2>
+        <p>
+            Поле для ввода email. Браузер сам проверит, что пользователь ввёл «собаку» (<code>@</code>) и домен. А на смартфоне откроется клавиатура с символом <code>@</code> и точкой — не нужно их искать!
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"mail"</span><span class="t">&gt;</span>Твой email:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"email"</span> <span class="a">id</span>=<span class="v">"mail"</span> <span class="a">name</span>=<span class="v">"email"</span> <span class="a">placeholder</span>=<span class="v">"name@example.com"</span><span class="t">&gt;</span></code></pre>
+        </div>
+        <div class="info info--tip">
+            <span class="info__icon">✨</span>
+            <div>
+                <b>Атрибут <code>placeholder</code></b> — это серая подсказка внутри пустого поля. Она исчезает, как только пользователь начинает печатать. Отличный способ показать пример правильного ввода!
+            </div>
+        </div>
+
+        <h2>📞 Телефон: type="tel"</h2>
+        <p>
+            На компьютере это обычное текстовое поле, а вот на смартфоне браузер сразу откроет <b>цифровую клавиатуру</b>. Очень удобно!
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"phone"</span><span class="t">&gt;</span>Телефон для связи:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"tel"</span> <span class="a">id</span>=<span class="v">"phone"</span> <span class="a">name</span>=<span class="v">"phone"</span> <span class="a">placeholder</span>=<span class="v">"+7 (___) ___-__-__"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>🔗 Адрес сайта: type="url"</h2>
+        <p>
+            Поле для ввода веб-адреса. Браузер проверит, что пользователь указал протокол (<code>http://</code> или <code>https://</code>).
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"site"</span><span class="t">&gt;</span>Ссылка на твой сайт:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"url"</span> <span class="a">id</span>=<span class="v">"site"</span> <span class="a">name</span>=<span class="v">"website"</span> <span class="a">placeholder</span>=<span class="v">"https://"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>📅 Дата и время: type="date" и type="time"</h2>
+        <p>
+            Магия! Вместо того чтобы заставлять пользователя вводить дату вручную (и потом разбирать её в формате «дд.мм.гггг»), браузер покажет <b>удобный календарь</b>.
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"date"</span><span class="t">&gt;</span>Дата восхождения:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"date"</span> <span class="a">id</span>=<span class="v">"date"</span> <span class="a">name</span>=<span class="v">"date"</span><span class="t">&gt;</span>
+
+<span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"time"</span><span class="t">&gt;</span>Время выхода:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"time"</span> <span class="a">id</span>=<span class="v">"time"</span> <span class="a">name</span>=<span class="v">"time"</span><span class="t">&gt;</span></code></pre>
+        </div>
+        <p>Также есть <code>type="datetime-local"</code> — для выбора даты и времени одновременно.</p>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Формат даты в коде:</b> Если ты хочешь задать дату по умолчанию через атрибут <code>value</code>, пиши её в формате <code>ГГГГ-ММ-ДД</code>. Например: <code>value="2026-07-15"</code>.
+            </div>
+        </div>
+
+        <h2>🎨 Выбор цвета: type="color"</h2>
+        <p>
+            При клике на такое поле браузер откроет стандартную цветовую палитру. Значение передаётся в формате HEX (например, <code>#ff6b6b</code>).
+        </p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"tent"</span><span class="t">&gt;</span>Цвет твоей палатки:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"color"</span> <span class="a">id</span>=<span class="v">"tent"</span> <span class="a">name</span>=<span class="v">"color"</span> <span class="a">value</span>=<span class="v">"#ff6b6b"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h2>📋 Шпаргалка: все типы полей</h2>
+        <p>Сохрани себе эту табличку — она пригодится в каждом проекте:</p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>type</th>
+                <th>Что делает</th>
+                <th>Фишка браузера</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>text</code></td>
+                <td>Обычный текст</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><code>password</code></td>
+                <td>Скрытый ввод</td>
+                <td>Прячет символы</td>
+            </tr>
+            <tr>
+                <td><code>email</code></td>
+                <td>Электронная почта</td>
+                <td>Проверка <code>@</code>, спец. клавиатура</td>
+            </tr>
+            <tr>
+                <td><code>tel</code></td>
+                <td>Телефон</td>
+                <td>Цифровая клавиатура</td>
+            </tr>
+            <tr>
+                <td><code>url</code></td>
+                <td>Веб-адрес</td>
+                <td>Проверка <code>http://</code></td>
+            </tr>
+            <tr>
+                <td><code>number</code></td>
+                <td>Число</td>
+                <td>Стрелочки +/-, min/max/step</td>
+            </tr>
+            <tr>
+                <td><code>date</code></td>
+                <td>Дата</td>
+                <td>Календарь</td>
+            </tr>
+            <tr>
+                <td><code>time</code></td>
+                <td>Время</td>
+                <td>Выбор часов и минут</td>
+            </tr>
+            <tr>
+                <td><code>color</code></td>
+                <td>Цвет</td>
+                <td>Цветовая палитра</td>
+            </tr>
+            <tr>
+                <td><code>range</code></td>
+                <td>Ползунок</td>
+                <td>Удобный выбор из диапазона</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Бронирование тура на Камчатку»</h3>
+            <p>Создай файл <code>booking.html</code> и собери форму бронирования, используя все новые типы полей:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Поле <code>email</code> для связи с туристом (с <code>placeholder</code>).</li>
+                <li>Поле <code>tel</code> для номера телефона.</li>
+                <li>Поле <code>password</code> для создания пароля личного кабинета.</li>
+                <li>Поле <code>url</code> для ссылки на Instagram туриста (чтобы посмотреть его фото).</li>
+                <li>Поле <code>date</code> для выбора даты начала тура.</li>
+                <li>Поле <code>time</code> для выбора времени встречи в аэропорту.</li>
+                <li>Поле <code>color</code> для выбора цвета фирменной футболки группы (по умолчанию — оранжевый <code>#ff7b00</code>).</li>
+                <li>Внизу — кнопка <code>&lt;button type="submit"&gt;</code> «Забронировать тур».</li>
+                <li>Не забудь про <code>&lt;label&gt;</code> для каждого поля и правильные <code>id</code> и <code>name</code>!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

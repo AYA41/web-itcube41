@@ -1,0 +1,114 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 12</span>
+        <h1>Фигуры с подписями: &lt;figure&gt; и &lt;figcaption&gt;</h1>
+        <p class="topic__lead">
+            Когда ты хочешь показать картинку с подписью, можно просто написать <code>&lt;img&gt;</code>, а под ним абзац текста. Но есть способ лучше — семантически правильный!
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>🖼️ Что такое &lt;figure&gt;?</h2>
+        <p>
+            Тег <code>&lt;figure&gt;</code> (фигура) — это «витрина» или «рамка» для любого самодостаточного контента: картинки, графика, схемы, фрагмента кода или цитаты.
+            Он говорит браузеру: «Этот контент связан с основным текстом, но может быть перенесён в другое место без потери смысла» (например, в боковую панель или приложение).
+        </p>
+
+        <h2>📝 А что такое &lt;figcaption&gt;?</h2>
+        <p>
+            Тег <code>&lt;figcaption&gt;</code> (Figure Caption — подпись к фигуре) — это заголовок или описание для содержимого <code>&lt;figure&gt;</code>.
+            Он <b>обязательно</b> должен находиться <i>внутри</i> <code>&lt;figure&gt;</code>, но может стоять первым, последним или даже в середине.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Картинка с подписью</span>
+            </div>
+            <pre><code><span class="t">&lt;figure&gt;</span>
+  <span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"volcano.jpg"</span> <span class="a">alt</span>=<span class="v">"Ключевская Сопка"</span><span class="t">&gt;</span>
+  <span class="t">&lt;figcaption&gt;</span>Вулкан Ключевская Сопка — самый высокий действующий вулкан Евразии.<span class="t">&lt;/figcaption&gt;</span>
+<span class="t">&lt;/figure&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">🏛️</span>
+            <div>
+                <b>Аналогия с музеем:</b><br>
+                <code>&lt;figure&gt;</code> — это стенд с экспонатом.<br>
+                <code>&lt;img&gt;</code> или другой контент — это сам экспонат.<br>
+                <code>&lt;figcaption&gt;</code> — это табличка рядом с экспонатом, объясняющая, что это такое.
+            </div>
+        </div>
+
+        <h2>🎯 Зачем это нужно, если можно просто img + p?</h2>
+        <p>Визуально результат почти одинаковый, но семантически — огромная разница:</p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- ❌ Плохой способ: браузер не поймёт, что текст относится к картинке --&gt;</span>
+<span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"bear.jpg"</span> <span class="a">alt</span>=<span class="v">"Медведь"</span><span class="t">&gt;</span>
+<span class="t">&lt;p&gt;</span>Камчатский бурый медведь.<span class="t">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- ✅ Хороший способ: всё связано в один логический блок --&gt;</span>
+<span class="t">&lt;figure&gt;</span>
+  <span class="t">&lt;img</span> <span class="a">src</span>=<span class="v">"bear.jpg"</span> <span class="a">alt</span>=<span class="v">"Медведь"</span><span class="t">&gt;</span>
+  <span class="t">&lt;figcaption&gt;</span>Камчатский бурый медведь.<span class="t">&lt;/figcaption&gt;</span>
+<span class="t">&lt;/figure&gt;</span></code></pre>
+        </div>
+
+        <h2>🎁 Что ещё можно помещать внутрь &lt;figure&gt;?</h2>
+        <p>
+            Не только картинки! Фигурой может быть <b>любой</b> самодостаточный контент, который иллюстрирует или дополняет основной текст:
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Фрагмент кода с пояснением --&gt;</span>
+<span class="t">&lt;figure&gt;</span>
+  <span class="t">&lt;pre&gt;</span><span class="t">&lt;code&gt;</span>
+    function hello() {
+      console.log("Привет!");
+    }
+  <span class="t">&lt;/code&gt;</span><span class="t">&lt;/pre&gt;</span>
+  <span class="t">&lt;figcaption&gt;</span>Пример 1. Простая функция приветствия.<span class="t">&lt;/figcaption&gt;</span>
+<span class="t">&lt;/figure&gt;</span>
+
+<span class="c">&lt;!-- Цитата с указанием автора --&gt;</span>
+<span class="t">&lt;figure&gt;</span>
+  <span class="t">&lt;blockquote&gt;</span>
+    Камчатка — это место, где земля встречается с небом.
+  <span class="t">&lt;/blockquote&gt;</span>
+  <span class="t">&lt;figcaption&gt;</span>— Из дневника путешественника<span class="t">&lt;/figcaption&gt;</span>
+<span class="t">&lt;/figure&gt;</span></code></pre>
+        </div>
+
+        <h2>📏 Правила использования</h2>
+        <ul class="topic__list">
+            <li>Тег <code>&lt;figcaption&gt;</code> может быть только <b>один</b> внутри <code>&lt;figure&gt;</code>.</li>
+            <li>Он <b>не обязателен</b> — можно использовать <code>&lt;figure&gt;</code> без подписи.</li>
+            <li>Внутри <code>&lt;figure&gt;</code> может быть несколько картинок или блоков контента, но подпись обычно одна (общая).</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно:</b> Не используй <code>&lt;figure&gt;</code> для каждой картинки подряд! Он нужен только там, где картинка <b>дополняет</b> основной текст.
+                Например, логотип сайта в шапке — это <b>не</b> фигура, а фото вулкана в статье «Вулканы Камчатки» — это <b>фигура</b>.
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Фотоотчёт о походе»</h3>
+            <p>Создай файл <code>gallery.html</code> и сделай красивый фотоотчёт:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Добавь заголовок <code>&lt;h1&gt;</code> «Мой поход к гейзерам».</li>
+                <li>Напиши короткий абзац-введение о том, куда и зачем ты пошёл.</li>
+                <li>Создай <b>минимум 2 фигуры</b> <code>&lt;figure&gt;</code> с картинками и подписями <code>&lt;figcaption&gt;</code>.</li>
+                <li>В одну из фигур добавь <b>две картинки</b> (например, «До» и «После»), но <b>одну общую подпись</b> под ними.</li>
+                <li>Добавь ещё одну фигуру, но вместо картинки вставь туда <b>цитату</b> (<code>&lt;blockquote&gt;</code>) с подписью автора.</li>
+                <li>Сохрани и открой в браузере. Поздравляю, ты сделал профессиональную семантическую галерею! 🎉</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 08</span>
+        <h1>Список определений: &lt;dl&gt;, &lt;dt&gt; и &lt;dd&gt;</h1>
+        <p class="topic__lead">
+            В прошлом уроке мы мельком упоминали этот тег. Теперь давай разберём его подробно! Это лучший способ создать на сайте словарь, глоссарий или карточку с характеристиками.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>📖 Из чего состоит список определений?</h2>
+        <p>
+            В отличие от обычных списков, здесь нет маркеров или цифр. Вместо этого есть чёткая структура «Термин — Описание». Для этого используются три тега:
+        </p>
+        <ul class="topic__list">
+            <li><code>&lt;dl&gt;</code> (Definition List) — общая «обёртка» для всего списка.</li>
+            <li><code>&lt;dt&gt;</code> (Definition Term) — сам термин или заголовок (то, что мы объясняем).</li>
+            <li><code>&lt;dd&gt;</code> (Definition Description) — описание или расшифровка термина.</li>
+        </ul>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Словарь юного программиста</span>
+            </div>
+            <pre><code><span class="t">&lt;dl&gt;</span>
+  <span class="t">&lt;dt&gt;</span>HTML<span class="t">&lt;/dt&gt;</span>
+  <span class="t">&lt;dd&gt;</span>Язык гипертекстовой разметки. Отвечает за структуру страницы.<span class="t">&lt;/dd&gt;</span>
+
+  <span class="t">&lt;dt&gt;</span>Браузер<span class="t">&lt;/dt&gt;</span>
+  <span class="t">&lt;dd&gt;</span>Программа, которая читает HTML-код и показывает нам красивый сайт.<span class="t">&lt;/dd&gt;</span>
+<span class="t">&lt;/dl&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">📏</span>
+            <div>
+                <b>Бонус от браузера:</b> По умолчанию браузер автоматически добавляет небольшой <b>отступ слева</b> для тега <code>&lt;dd&gt;</code>. Это делает текст похожим на настоящий словарный артикул, и тебе даже не нужно подключать CSS!
+            </div>
+        </div>
+
+        <h2>🎯 Одно слово — несколько описаний</h2>
+        <p>
+            Иногда один термин можно объяснить по-разному или дать несколько характеристик. Хорошая новость: к одному <code>&lt;dt&gt;</code> можно прикрепить <b>несколько</b> тегов <code>&lt;dd&gt;</code> подряд!
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;dl&gt;</span>
+  <span class="t">&lt;dt&gt;</span>Кальдера<span class="t">&lt;/dt&gt;</span>
+  <span class="t">&lt;dd&gt;</span>Обширная впадина вулканического происхождения.<span class="t">&lt;/dd&gt;</span>
+  <span class="t">&lt;dd&gt;</span><i>(Пример: Кальдера вулкана Узон на Камчатке)</i><span class="t">&lt;/dd&gt;</span>
+<span class="t">&lt;/dl&gt;</span></code></pre>
+        </div>
+
+        <h2>💡 Где это использовать на практике?</h2>
+        <p>Списки определений идеально подходят для:</p>
+        <ul class="topic__list">
+            <li>📚 Глоссариев и словарей на сайте.</li>
+            <li>🏷️ Карточек товаров (например: <code>&lt;dt&gt;</code>Вес, <code>&lt;dd&gt;</code>150 грамм).</li>
+            <li>👤 Профилей пользователей (например: <code>&lt;dt&gt;</code>Имя, <code>&lt;dd&gt;</code>Иван; <code>&lt;dt&gt;</code>Город, <code>&lt;dd&gt;</code>Петропавловск-Камчатский).</li>
+            <li>❓ Блоков «Вопрос — Ответ» (если не использовать <code>&lt;details&gt;</code>).</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Частая ошибка:</b> Нельзя писать обычный текст или ставить теги вроде <code>&lt;p&gt;</code> напрямую внутри <code>&lt;dl&gt;</code>. Внутри <code>&lt;dl&gt;</code> могут находиться <b>только</b> пары <code>&lt;dt&gt;</code> и <code>&lt;dd&gt;</code> (или другие <code>&lt;dl&gt;</code> для вложенности).
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Энциклопедия Камчатки»</h3>
+            <p>Создай файл <code>glossary.html</code> и сделай свой мини-словарь:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Добавь заголовок <code>&lt;h1&gt;</code> «Словарь исследователя Камчатки».</li>
+                <li>Создай список <code>&lt;dl&gt;</code> минимум с 3 терминами (например: «Гейзер», «Тундра», «Лосось»).</li>
+                <li>Для одного из терминов используй <b>два</b> тега <code>&lt;dd&gt;</code>: в первом дай научное определение, а во втором — интересный факт (можно использовать тег <code>&lt;i&gt;</code> для курсива).</li>
+                <li>Попробуй добавить внутрь одного из описаний <code>&lt;dd&gt;</code> маленькую картинку <code>&lt;img&gt;</code> с относительным путём.</li>
+                <li>Сохрани и открой в браузере. Обрати внимание, как аккуратно браузер выстроил отступы для описаний!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

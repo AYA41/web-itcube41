@@ -1,0 +1,94 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 02</span>
+        <h1>Элементы группировки: &lt;div&gt; и &lt;span&gt;</h1>
+        <p class="topic__lead">
+            Иногда нам нужно применить стиль или действие сразу к нескольким элементам, или, наоборот, выделить маленькую часть текста. Для этого в HTML есть два универсальных тега-контейнера.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>📦 Тег &lt;div&gt; (Блочный контейнер)</h2>
+        <p>
+            Название <code>&lt;div&gt;</code> происходит от английского <i>division</i> (раздел, блок). Это универсальная «коробка», в которую можно положить любые другие элементы: текст, картинки, кнопки или даже другие <code>&lt;div&gt;</code>.
+        </p>
+        <p>
+            <b>Главная особенность:</b> <code>&lt;div&gt;</code> всегда начинается с <b>новой строки</b> и по умолчанию занимает всю доступную ширину экрана (или родительского блока).
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Пример использования div</span>
+            </div>
+            <pre><code><span class="t">&lt;div&gt;</span>
+  <span class="t">&lt;h2&gt;</span>Моя карточка<span class="t">&lt;/h2&gt;</span>
+  <span class="t">&lt;p&gt;</span>Здесь может быть описание профиля.<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;button&gt;</span>Нажми меня<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/div&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">📦</span>
+            <div>
+                <b>Аналогия:</b> Представь, что <code>&lt;div&gt;</code> — это картонная коробка или перегородка в комнате. Она отделяет содержимое от всего остального и всегда стоит на полу (начинается с новой строки).
+            </div>
+        </div>
+
+        <h2>🖍️ Тег &lt;span&gt; (Строчный контейнер)</h2>
+        <p>
+            Тег <code>&lt;span&gt;</code> тоже является универсальным контейнером, но он работает <b>внутри строки</b>. Он не переносит текст на новую строку и занимает ровно столько места, сколько занимает его содержимое.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Пример использования span</span>
+            </div>
+            <pre><code><span class="t">&lt;p&gt;</span>Я изучаю <span class="t">&lt;span&gt;</span>HTML<span class="t">&lt;/span&gt;</span> в IT-кубе!<span class="t">&lt;/p&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">🖍️</span>
+            <div>
+                <b>Аналогия:</b> <code>&lt;span&gt;</code> — это текстовыделитель (маркер) или цветной стикер. Ты можешь «подсветить» им одно слово или фразу прямо посреди обычного текста, не ломая структуру строки.
+            </div>
+        </div>
+
+        <h2>⚖️ В чём главная разница?</h2>
+        <p>Давай посмотрим, как они ведут себя рядом:</p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Два div всегда будут друг под другом --&gt;</span>
+<span class="t">&lt;div&gt;</span>Первый блок<span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;div&gt;</span>Второй блок<span class="t">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- Два span будут в одну строку --&gt;</span>
+<span class="t">&lt;span&gt;</span>Первое слово<span class="t">&lt;/span&gt;</span> <span class="t">&lt;span&gt;</span>Второе слово<span class="t">&lt;/span&gt;</span></code></pre>
+        </div>
+
+        <ul class="topic__list">
+            <li>Используй <code>&lt;div&gt;</code>, чтобы сгруппировать крупные части страницы (шапку, карточку товара, блок с формой).</li>
+            <li>Используй <code>&lt;span&gt;</code>, чтобы изменить цвет, размер или стиль <b>отдельного слова</b> или фразы внутри абзаца.</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Важно:</b> Сами по себе теги <code>&lt;div&gt;</code> и <code>&lt;span&gt;</code> <b>ничего не меняют визуально</b>. Браузер отображает их как обычный текст. Вся их магия раскрывается, когда мы начинаем применять к ним <b>CSS-стили</b> (об этом мы узнаем в следующем большом разделе!).
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание</h3>
+            <p>Открой свой файл <code>index.html</code> и попробуй сделать следующее:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Оберни весь свой контент (заголовок и абзац) в один большой тег <code>&lt;div&gt;</code>.</li>
+                <li>Внутри абзаца <code>&lt;p&gt;</code> найди своё имя и оберни его в тег <code>&lt;span&gt;</code>.</li>
+                <li>Сохрани файл и обнови страницу в браузере. Визуально пока ничего не изменится, но ты правильно подготовил структуру для будущих стилей!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

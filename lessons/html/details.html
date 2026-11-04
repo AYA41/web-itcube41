@@ -1,0 +1,83 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 07</span>
+        <h1>Раскрывающийся текст: &lt;details&gt; и &lt;summary&gt;</h1>
+        <p class="topic__lead">
+            Иногда на сайте нужно спрятать длинный текст, чтобы он не занимал много места, но дать пользователю возможность раскрыть его по клику. И для этого даже не нужен JavaScript!
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>📦 Магическая пара тегов</h2>
+        <p>
+            Чтобы создать раскрывающийся блок (спойлер), нам нужны два тега, которые работают только вместе:
+        </p>
+        <ul class="topic__list">
+            <li><code>&lt;details&gt;</code> — это «сундук». Он содержит в себе весь скрытый контент.</li>
+            <li><code>&lt;summary&gt;</code> — это «крышка сундука» или заголовок. Это единственная видимая часть, на которую можно нажать, чтобы открыть или закрыть содержимое.</li>
+        </ul>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Пример спойлера</span>
+            </div>
+            <pre><code><span class="t">&lt;details&gt;</span>
+  <span class="t">&lt;summary&gt;</span>Вопрос: Есть ли на Камчатке медведи?<span class="t">&lt;/summary&gt;</span>
+  <span class="t">&lt;p&gt;</span>Да! На Камчатке обитает около 30 тысяч бурых медведей. Это примерно треть от всей популяции России. Но бояться не стоит: в городах их не встретить, а в природе они сами избегают людей.<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;/details&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">✨</span>
+            <div>
+                <b>Суперсила этого тега:</b> Браузер сам добавляет маленький треугольник (▶) слева от текста в <code>&lt;summary&gt;</code> и сам обрабатывает клик. Тебе не нужно писать ни строчки кода на JavaScript!
+            </div>
+        </div>
+
+        <h2>🔓 Как сделать блок открытым по умолчанию?</h2>
+        <p>
+            По умолчанию содержимое <code>&lt;details&gt;</code> скрыто. Но если ты хочешь, чтобы при загрузке страницы оно уже было раскрыто, просто добавь атрибут <code>open</code> к тегу <code>&lt;details&gt;</code>.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Этот блок будет открыт сразу --&gt;</span>
+<span class="t">&lt;details</span> <span class="a">open</span><span class="t">&gt;</span>
+  <span class="t">&lt;summary&gt;</span>Секретная информация<span class="t">&lt;/summary&gt;</span>
+  <span class="t">&lt;p&gt;</span>Тут написано что-то очень важное!<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;/details&gt;</span></code></pre>
+        </div>
+
+        <h2>🎁 Что можно спрятать внутри?</h2>
+        <p>
+            Внутри <code>&lt;details&gt;</code> может быть <b>абсолютно любой</b> HTML-код! Не только текст, но и:
+        </p>
+        <ul class="topic__list">
+            <li>Списки (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>)</li>
+            <li>Картинки (<code>&lt;img&gt;</code>)</li>
+            <li>Видео (<code>&lt;video&gt;</code>)</li>
+            <li>И даже другие вложенные блоки <code>&lt;details&gt;</code>!</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Правило вложенности:</b> Тег <code>&lt;summary&gt;</code> должен быть <b>самым первым</b> элементом внутри <code>&lt;details&gt;</code>. Если поставить его вторым или третьим, браузер может показать его не как кнопку, а как обычный текст, и магия сломается.
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «FAQ о Камчатке»</h3>
+            <p>Создай файл <code>faq.html</code> и сделай свою страницу с частыми вопросами:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Добавь заголовок <code>&lt;h1&gt;</code> «Часто задаваемые вопросы».</li>
+                <li>Создай минимум 3 блока <code>&lt;details&gt;</code> с разными вопросами в <code>&lt;summary&gt;</code> (например, про вулканы, про гейзеры, про погоду).</li>
+                <li>В ответе на один из вопросов вставь картинку (<code>&lt;img&gt;</code>) или маркированный список (<code>&lt;ul&gt;</code>).</li>
+                <li>Один из блоков сделай открытым по умолчанию, добавив атрибут <code>open</code>.</li>
+                <li>Сохрани файл, открой в браузере и покликай по своим спойлерам. Работает? Поздравляю, ты сделал интерактивный сайт без JavaScript! 🎉</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

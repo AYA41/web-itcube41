@@ -1,0 +1,159 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 15</span>
+        <h1>Загрузка файлов, списки и многострочный текст</h1>
+        <p class="topic__lead">
+            В прошлых уроках мы научились вводить короткие данные. Но что, если нужно загрузить фотографию, выбрать страну из списка или написать целое письмо? Для этого в HTML есть три специальных инструмента.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>📎 Загрузка файлов: type="file"</h2>
+        <p>
+            Поле <code>&lt;input type="file"&gt;</code> открывает стандартное окно выбора файла на компьютере пользователя. Это как почтовый ящик, в который можно «положить» любой файл и отправить на сайт.
+        </p>
+
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+                <span class="code-block__title">Простая загрузка файла</span>
+            </div>
+            <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"photo"</span><span class="t">&gt;</span>Загрузи своё фото:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"file"</span> <span class="a">id</span>=<span class="v">"photo"</span> <span class="a">name</span>=<span class="v">"photo"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h3>🎯 Атрибут <code>accept</code> — фильтр по типам</h3>
+        <p>
+            Чтобы пользователь не загрузил случайно видео вместо картинки, можно указать, какие типы файлов разрешены. Окно выбора сразу покажет только подходящие файлы.
+        </p>
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Только картинки --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"file"</span> <span class="a">accept</span>=<span class="v">"image/*"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- Только PDF-документы --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"file"</span> <span class="a">accept</span>=<span class="v">".pdf"</span><span class="t">&gt;</span>
+
+<span class="c">&lt;!-- Картинки или видео --&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"file"</span> <span class="a">accept</span>=<span class="v">"image/*,video/*"</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <h3>📚 Атрибут <code>multiple</code> — несколько файлов сразу</h3>
+        <p>Добавь это слово, и пользователь сможет выбрать сразу много файлов (с зажатым Ctrl или Shift).</p>
+        <div class="code-block">
+            <pre><code><span class="t">&lt;input</span> <span class="a">type</span>=<span class="v">"file"</span> <span class="a">name</span>=<span class="v">"gallery"</span> <span class="a">multiple</span><span class="t">&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>КРИТИЧЕСКИ ВАЖНО:</b> Чтобы форма с файлом вообще работала, у тега <code>&lt;form&gt;</code> <b>обязательно</b> должен быть атрибут <code>enctype="multipart/form-data"</code>. Без него файлы не отправятся!<br><br>
+                <code>&lt;form action="#" method="post" enctype="multipart/form-data"&gt;</code>
+            </div>
+        </div>
+
+        <h2>📋 Выпадающий список: &lt;select&gt; и &lt;option&gt;</h2>
+        <p>
+            Если вариантов выбора много (например, 80 стран или 12 месяцев), делать для каждого отдельный переключатель — неудобно. Лучше использовать выпадающий список <code>&lt;select&gt;</code>.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"month"</span><span class="t">&gt;</span>Месяц путешествия:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;select</span> <span class="a">id</span>=<span class="v">"month"</span> <span class="a">name</span>=<span class="v">"month"</span><span class="t">&gt;</span>
+  <span class="t">&lt;option</span> <span class="a">value</span>=<span class="v">""</span><span class="t">&gt;</span>-- Выбери месяц --<span class="t">&lt;/option&gt;</span>
+  <span class="t">&lt;option</span> <span class="a">value</span>=<span class="v">"july"</span><span class="t">&gt;</span>Июль<span class="t">&lt;/option&gt;</span>
+  <span class="t">&lt;option</span> <span class="a">value</span>=<span class="v">"august"</span> <span class="a">selected</span><span class="t">&gt;</span>Август<span class="t">&lt;/option&gt;</span>
+  <span class="t">&lt;option</span> <span class="a">value</span>=<span class="v">"september"</span><span class="t">&gt;</span>Сентябрь<span class="t">&lt;/option&gt;</span>
+<span class="t">&lt;/select&gt;</span></code></pre>
+        </div>
+
+        <div class="info info--tip">
+            <span class="info__icon">💡</span>
+            <div>
+                <b>Атрибут <code>selected</code></b> работает как <code>checked</code> у чекбоксов — он делает вариант выбранным по умолчанию. А первый пустой <code>&lt;option&gt;</code> — это хорошая практика, чтобы пользователь осознанно сделал выбор, а не отправил форму со случайным вариантом.
+            </div>
+        </div>
+
+        <h3>📂 Группировка вариантов: &lt;optgroup&gt;</h3>
+        <p>Если вариантов очень много, их можно объединить в группы с заголовками:</p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;select</span> <span class="a">name</span>=<span class="v">"place"</span><span class="t">&gt;</span>
+  <span class="t">&lt;optgroup</span> <span class="a">label</span>=<span class="v">"Вулканы"</span><span class="t">&gt;</span>
+    <span class="t">&lt;option&gt;</span>Ключевская Сопка<span class="t">&lt;/option&gt;</span>
+    <span class="t">&lt;option&gt;</span>Авачинская Сопка<span class="t">&lt;/option&gt;</span>
+  <span class="t">&lt;/optgroup&gt;</span>
+  <span class="t">&lt;optgroup</span> <span class="a">label</span>=<span class="v">"Озёра"</span><span class="t">&gt;</span>
+    <span class="t">&lt;option&gt;</span>Курильское озеро<span class="t">&lt;/option&gt;</span>
+    <span class="t">&lt;option&gt;</span>Озеро Тао-Тучек<span class="t">&lt;/option&gt;</span>
+  <span class="t">&lt;/optgroup&gt;</span>
+<span class="t">&lt;/select&gt;</span></code></pre>
+        </div>
+
+        <h2>📝 Большое поле текста: &lt;textarea&gt;</h2>
+        <p>
+            Тег <code>&lt;input type="text"&gt;</code> удобен для коротких данных (имя, email). Но что, если нужно написать целое сообщение, отзыв или историю? Для этого существует <code>&lt;textarea&gt;</code> — многострочное текстовое поле.
+        </p>
+
+        <div class="code-block">
+      <pre><code><span class="t">&lt;label</span> <span class="a">for</span>=<span class="v">"message"</span><span class="t">&gt;</span>Расскажи о себе:<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;textarea</span> <span class="a">id</span>=<span class="v">"message"</span> <span class="a">name</span>=<span class="v">"message"</span> <span class="a">rows</span>=<span class="v">"5"</span> <span class="a">cols</span>=<span class="v">"40"</span> <span class="a">placeholder</span>=<span class="v">"Напиши здесь..."</span><span class="t">&gt;&lt;/textarea&gt;</span></code></pre>
+        </div>
+
+        <ul class="topic__list">
+            <li><code>rows</code> — высота поля в строках.</li>
+            <li><code>cols</code> — ширина поля в символах.</li>
+            <li><b>Важно:</b> <code>&lt;textarea&gt;</code> — парный тег! Между <code>&lt;textarea&gt;</code> и <code>&lt;/textarea&gt;</code> <b>не должно быть ничего</b>, даже пробела. Иначе этот пробел появится в поле.</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Частая ошибка:</b><br>
+                ❌ <code>&lt;textarea placeholder="Текст"&gt;Подсказка внутри&lt;/textarea&gt;</code> — слово «Подсказка внутри» станет значением по умолчанию!<br>
+                ✅ <code>&lt;textarea placeholder="Текст"&gt;&lt;/textarea&gt;</code> — правильно, подсказка отображается серым.
+            </div>
+        </div>
+
+        <h2>🔍 Сравним три элемента</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Элемент</th>
+                <th>Для чего</th>
+                <th>Особенность</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>type="file"</code></td>
+                <td>Загрузка файлов</td>
+                <td>Нужен <code>enctype</code> у формы</td>
+            </tr>
+            <tr>
+                <td><code>&lt;select&gt;</code></td>
+                <td>Выбор из готового списка</td>
+                <td>Экономит место на странице</td>
+            </tr>
+            <tr>
+                <td><code>&lt;textarea&gt;</code></td>
+                <td>Длинный текст</td>
+                <td>Парный тег, можно переносить строки</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Заявка на фотоконкурс»</h3>
+            <p>Создай файл <code>photo-contest.html</code> и сделай форму участия в конкурсе фотографий Камчатки:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Не забудь про <code>&lt;form enctype="multipart/form-data"&gt;</code> — иначе файлы не загрузятся!</li>
+                <li>Добавь поле <code>type="file"</code> с атрибутом <code>accept="image/*"</code> и <code>multiple</code>, чтобы можно было загрузить сразу несколько фотографий.</li>
+                <li>Сделай выпадающий список <code>&lt;select&gt;</code> «Номинация конкурса» с группами <code>&lt;optgroup&gt;</code>: «Природа» (варианты: Вулканы, Гейзеры, Океан) и «Животные» (варианты: Медведи, Орланы, Лосось).</li>
+                <li>Добавь <code>&lt;textarea&gt;</code> с вопросом «Расскажи историю, стоящую за этим кадром:» (сделай его размером 6 строк и 50 символов в ширину).</li>
+                <li>Внизу — кнопка «Отправить работу».</li>
+                <li>Открой файл в браузере и проверь, что все элементы работают корректно!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>

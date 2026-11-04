@@ -1,0 +1,88 @@
+<div class="topic-content" data-aos="fade-up">
+    <div class="topic__head">
+        <span class="topic__badge">Урок 04</span>
+        <h1>Форматирование текста</h1>
+        <p class="topic__lead">
+            Иногда нужно сделать слово жирным, другое — курсивом, третье — зачеркнуть, как старую цену, а четвёртое — выделить, как маркером. В HTML для этого есть специальные теги.
+        </p>
+    </div>
+
+    <div class="topic__body">
+
+        <h2>💪 Жирный текст: &lt;b&gt; и &lt;strong&gt;</h2>
+        <p>Оба тега делают текст <b>жирным</b>, но между ними есть важная смысловая разница:</p>
+        <div class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">HTML</span>
+            </div>
+            <pre><code><span class="t">&lt;b&gt;</span>Просто жирный текст<span class="t">&lt;/b&gt;</span>
+<span class="t">&lt;strong&gt;</span>Очень важный текст<span class="t">&lt;/strong&gt;</span></code></pre>
+        </div>
+        <div class="info info--tip">
+            <span class="info__icon">🧠</span>
+            <div>
+                <b>В чём разница?</b><br>
+                <code>&lt;b&gt;</code> (bold) — это просто <i>внешний вид</i>.<br>
+                <code>&lt;strong&gt;</code> — это <i>смысл</i>. Он говорит браузеру и программам для чтения с экрана: «Этот текст критически важен!». <b>Всегда используй &lt;strong&gt;</b>, если текст действительно важный.
+            </div>
+        </div>
+
+        <h2>🎨 Курсив и акцент: &lt;i&gt; и &lt;em&gt;</h2>
+        <p>Аналогичная ситуация с наклонным текстом (курсивом):</p>
+        <div class="code-block">
+      <pre><code><span class="t">&lt;i&gt;</span>Просто курсив (например, название книги)<span class="t">&lt;/i&gt;</span>
+<span class="t">&lt;em&gt;</span>Текст с логическим ударением<span class="t">&lt;/em&gt;</span></code></pre>
+        </div>
+        <p>Тег <code>&lt;em&gt;</code> (emphasis) указывает, что это слово нужно произнести с интонацией или что оно ключевое в предложении.</p>
+
+        <h2>🖍️ Выделение и исправления</h2>
+        <p>HTML умеет показывать редактирование текста прямо на странице:</p>
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Выделение, как текстовым маркером --&gt;</span>
+<span class="t">&lt;mark&gt;</span>Это самый важный фрагмент!<span class="t">&lt;/mark&gt;</span>
+
+<span class="c">&lt;!-- Зачёркнутый текст (старая цена, ошибка) --&gt;</span>
+<span class="t">&lt;del&gt;</span>1000 рублей<span class="t">&lt;/del&gt;</span>
+
+<span class="c">&lt;!-- Подчёркнутый текст (новая цена, исправление) --&gt;</span>
+<span class="t">&lt;ins&gt;</span>500 рублей<span class="t">&lt;/ins&gt;</span></code></pre>
+        </div>
+
+        <h2>🔬 Специальные символы: степень и индекс</h2>
+        <p>Для математических формул или химических элементов есть два маленьких, но мощных тега:</p>
+        <div class="code-block">
+      <pre><code><span class="c">&lt;!-- Верхний индекс (степень) --&gt;</span>
+Площадь комнаты: 20<span class="t">&lt;sup&gt;</span>2<span class="t">&lt;/sup&gt;</span> м.
+
+<span class="c">&lt;!-- Нижний индекс (химия) --&gt;</span>
+Формула воды: H<span class="t">&lt;sub&gt;</span>2<span class="t">&lt;/sub&gt;</span>O</code></pre>
+        </div>
+
+        <h2>💻 Текст для программистов</h2>
+        <p>Раз ты учишься в IT-кубе, тебе точно пригодятся эти теги:</p>
+        <ul class="topic__list">
+            <li><code>&lt;code&gt;</code> — выделяет фрагмент <b>компьютерного кода</b> внутри строки (делает шрифт моноширинным).</li>
+            <li><code>&lt;pre&gt;</code> — <b>преформатированный текст</b>. Браузер сохраняет все пробелы и переносы строк точно так, как ты их написал в коде.</li>
+        </ul>
+
+        <div class="info info--warning">
+            <span class="info__icon">⚠️</span>
+            <div>
+                <b>Помни:</b> HTML отвечает только за <b>смысл</b> форматирования. Если ты хочешь сделать текст красным, огромным или изменить шрифт на красивый — для этого в следующем разделе мы будем использовать <b>CSS</b>!
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>🚀 Практическое задание: «Карточка товара»</h3>
+            <p>Создай файл <code>product.html</code> и сделай в нём карточку вымышленного товара (например, «Набор юного хакера»), используя новые теги:</p>
+            <ol class="topic__list" style="list-style: decimal; padding-left: 20px;">
+                <li>Название товара сделай заголовком <code>&lt;h2&gt;</code>.</li>
+                <li>В описании используй <code>&lt;strong&gt;</code> для главного преимущества.</li>
+                <li>Покажи старую цену в теге <code>&lt;del&gt;</code>, а новую (со скидкой) — в теге <code>&lt;mark&gt;</code> или <code>&lt;ins&gt;</code>.</li>
+                <li>Добавь маленькую приписку внизу, используя <code>&lt;small&gt;</code> (например, «<small>*Количество ограничено</small>»).</li>
+                <li>Сохрани и открой в браузере. Посмотри, как теги изменили текст!</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
