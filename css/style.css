@@ -91,6 +91,7 @@ img { max-width: 100%; display: block; }
 
 body > *:not(.bg-blobs) {
   position: relative;
+  z-index: 1;
 }
 
 .blob {
@@ -116,7 +117,7 @@ body > *:not(.bg-blobs) {
 .header {
   position: sticky;
   top: 16px;
-  z-index: 100;
+  z-index: 1000;
   margin: 16px auto 0;
   max-width: calc(var(--container) - 32px);
   padding: 14px 24px;
@@ -376,8 +377,9 @@ body > *:not(.bg-blobs) {
   }
   .nav.is-open {
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+      transform: translateY(0);
+      pointer-events: auto;
+      z-index: 9999;
   }
   .nav__list { flex-direction: column; }
   .nav__link { display: block; padding: 12px 16px; }
