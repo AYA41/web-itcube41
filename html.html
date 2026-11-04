@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <link rel="preload" href="css/style.css" as="style" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -189,7 +191,25 @@
     // Бургер
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
-    burger?.addEventListener('click', () => nav.classList.toggle('is-open'));
+
+    burger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.toggle('is-open');
+    });
+
+    // Закрытие меню при клике по ссылке
+    nav?.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+      });
+    });
+
+    // Закрытие меню при клике вне его
+    document.addEventListener('click', (e) => {
+      if (!nav?.contains(e.target) && !burger?.contains(e.target)) {
+        nav?.classList.remove('is-open');
+      }
+    });
 </script>
 </body>
 </html>
