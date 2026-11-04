@@ -27,15 +27,12 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-  background: #0b1a3a; /* ✅ Добавлено: явный фон для html */
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font);
   color: var(--c-text);
-  background: linear-gradient(135deg, #0b1a3a 0%, #1a2f6b 50%, #2d1b69 100%) !important; /* ✅ Добавлено: !important и прямые цвета */
+  background: linear-gradient(135deg, var(--c-bg-1) 0%, var(--c-bg-2) 50%, #2d1b69 100%);
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.6;
@@ -56,7 +53,7 @@ img { max-width: 100%; display: block; }
    LIQUID GLASS — универсальный класс
    ========================= */
 .glass {
-  background: var(--c-glass-bg);
+  background: rgba(11, 26, 58, 0.6); /* ✅ Изменено: тёмный полупрозрачный фон вместо белого */
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--c-glass-border);
@@ -86,10 +83,16 @@ img { max-width: 100%; display: block; }
 .bg-blobs {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0; /* ✅ Изменено: было -1, стало 0 */
   overflow: hidden;
   pointer-events: none;
 }
+
+body > *:not(.bg-blobs) {
+  position: relative;
+  z-index: 1; /* ✅ Добавлено: весь контент поверх blobs */
+}
+
 .blob {
   position: absolute;
   border-radius: 50%;
