@@ -89,6 +89,10 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
 }
 
+body > *:not(.bg-blobs) {
+  position: relative;
+}
+
 .blob {
   position: absolute;
   border-radius: 50%;
