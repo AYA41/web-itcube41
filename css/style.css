@@ -27,12 +27,15 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: #0b1a3a; /* ✅ Добавлено: явный фон для html */
+}
 
 body {
   font-family: var(--font);
   color: var(--c-text);
-  background: linear-gradient(135deg, var(--c-bg-1) 0%, var(--c-bg-2) 50%, #2d1b69 100%);
+  background: linear-gradient(135deg, #0b1a3a 0%, #1a2f6b 50%, #2d1b69 100%) !important; /* ✅ Добавлено: !important и прямые цвета */
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.6;
